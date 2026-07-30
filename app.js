@@ -5,23 +5,23 @@
 
 // ── Constants & Config ──────────────────────
 const CATEGORIES = [
-  { id: 'visual',     emoji: '👁️', title: 'Visual :' },
-  { id: 'dance',      emoji: '💃', title: 'Dance :' },
-  { id: 'vocal',      emoji: '🎤', title: 'Vocal :' },
-  { id: 'fanservice', emoji: '❤️', title: 'Fan Service :' },
-  { id: 'mc',         emoji: '🎙️', title: 'MC :' },
-  { id: 'stage',      emoji: '🌟', title: 'Stage Performance :' },
-  { id: 'fashion',    emoji: '👗', title: 'Fashion Sense :' },
-  { id: 'leadership', emoji: '👑', title: 'Leadership :' },
-  { id: 'aura',       emoji: '✨', title: 'Aura :' },
+  { id: 'visual', emoji: '<i data-lucide="eye" style="width:16px;height:16px;margin-right:6px"></i>', title: 'Visual' },
+  { id: 'dance', emoji: '<i data-lucide="music-4" style="width:16px;height:16px;margin-right:6px"></i>', title: 'Dance' },
+  { id: 'vocal', emoji: '<i data-lucide="mic-2" style="width:16px;height:16px;margin-right:6px"></i>', title: 'Vocal' },
+  { id: 'fanservice', emoji: '<i data-lucide="heart" style="width:16px;height:16px;margin-right:6px"></i>', title: 'Fan Service' },
+  { id: 'mc', emoji: '<i data-lucide="mic" style="width:16px;height:16px;margin-right:6px"></i>', title: 'MC' },
+  { id: 'stage', emoji: '<i data-lucide="star" style="width:16px;height:16px;margin-right:6px"></i>', title: 'Stage Performance' },
+  { id: 'fashion', emoji: '<i data-lucide="shirt" style="width:16px;height:16px;margin-right:6px"></i>', title: 'Fashion Sense' },
+  { id: 'leadership', emoji: '<i data-lucide="crown" style="width:16px;height:16px;margin-right:6px"></i>', title: 'Leadership' },
+  { id: 'aura', emoji: '<i data-lucide="sparkles" style="width:16px;height:16px;margin-right:6px"></i>', title: 'Aura' },
 ];
 
 const TEAM_COLS = [
-  { id: 'love',    name: 'Love',    matchTeam: 'Team Love' },
-  { id: 'dream',   name: 'Dream',   matchTeam: 'Team Dream' },
+  { id: 'love', name: 'Love', matchTeam: 'Team Love' },
+  { id: 'dream', name: 'Dream', matchTeam: 'Team Dream' },
   { id: 'passion', name: 'Passion', matchTeam: 'Team Passion' },
   { id: 'trainee', name: 'Trainee', matchTeam: 'Trainee' },
-  { id: 'jkt48',   name: 'JKT48',   matchTeam: 'ANY' }, // All-Star Overall pick
+  { id: 'jkt48', name: 'JKT48', matchTeam: 'ANY' }, // All-Star Overall pick
 ];
 
 const RANDOM_GROUP_NAMES = [
@@ -34,79 +34,79 @@ const RANDOM_GROUP_NAMES = [
 
 const TIER_CONFIG = [
   { min: 90, name: '👑 LEGENDARY', class: 'tier-legendary' },
-  { min: 75, name: '💜 EPIC',      class: 'tier-epic' },
-  { min: 55, name: '💎 GREAT',     class: 'tier-great' },
-  { min: 35, name: '✅ GOOD',      class: 'tier-good' },
-  { min: 0,  name: '🌱 STARTER',   class: 'tier-starter' },
+  { min: 75, name: '💜 EPIC', class: 'tier-epic' },
+  { min: 55, name: '💎 GREAT', class: 'tier-great' },
+  { min: 35, name: '✅ GOOD', class: 'tier-good' },
+  { min: 0, name: '🌱 STARTER', class: 'tier-starter' },
 ];
 
 // ── Fallback JKT48 Member Data ──────────────
 const FALLBACK_MEMBERS = [
   // Team Love (15 members)
-  { id: 1,  name: 'Fiony Alveria',        nickname: 'Fiony',   team: 'Team Love',    img: null, gen: '8th' },
-  { id: 2,  name: 'Indah Cahya',          nickname: 'Indah',   team: 'Team Love',    img: null, gen: '9th' },
-  { id: 3,  name: 'Anindya Ramadhani',    nickname: 'Anin',    team: 'Team Love',    img: null, gen: '11th' },
-  { id: 4,  name: 'Michelle Alexandra',   nickname: 'Michie',  team: 'Team Love',    img: null, gen: '11th' },
-  { id: 5,  name: 'Celline Thefani',      nickname: 'Elin',    team: 'Team Love',    img: null, gen: '11th' },
-  { id: 6,  name: 'Grace Octaviani',      nickname: 'Gracie',  team: 'Team Love',    img: null, gen: '11th' },
-  { id: 7,  name: 'Cynthia Yaputera',     nickname: 'Cynthia', team: 'Team Love',    img: null, gen: '11th' },
-  { id: 8,  name: 'Cathleen Nixie',       nickname: 'Nixie',   team: 'Team Love',    img: null, gen: '11th' },
-  { id: 9,  name: 'Alya Amanda',          nickname: 'Alya',    team: 'Team Love',    img: null, gen: '11th' },
-  { id: 10, name: 'Aurellia',             nickname: 'Lia',     team: 'Team Love',    img: null, gen: '11th' },
-  { id: 11, name: 'Aurhel Alana',         nickname: 'Lana',    team: 'Team Love',    img: null, gen: '11th' },
-  { id: 12, name: 'Hillary Abigail',      nickname: 'Lily',    team: 'Team Love',    img: null, gen: '12th' },
-  { id: 13, name: 'Jazzlyn Trisha',       nickname: 'Trisha',  team: 'Team Love',    img: null, gen: '12th' },
-  { id: 14, name: 'Fritzy Rosmerian',     nickname: 'Fritzy',  team: 'Team Love',    img: null, gen: '12th' },
-  { id: 15, name: 'Nayla Suji',           nickname: 'Nayla',   team: 'Team Love',    img: null, gen: '12th' },
+  { id: 9, name: 'Alya Amanda', nickname: 'Alya', team: 'Team Love', img: null, gen: '11th' },
+  { id: 3, name: 'Anindya Ramadhani', nickname: 'Anin', team: 'Team Love', img: null, gen: '11th' },
+  { id: 10, name: 'Aurellia', nickname: 'Lia', team: 'Team Love', img: null, gen: '11th' },
+  { id: 11, name: 'Aurhel Alana', nickname: 'Lana', team: 'Team Love', img: null, gen: '11th' },
+  { id: 8, name: 'Cathleen Nixie', nickname: 'Nixie', team: 'Team Love', img: null, gen: '11th' },
+  { id: 5, name: 'Celline Thefani', nickname: 'Elin', team: 'Team Love', img: null, gen: '11th' },
+  { id: 7, name: 'Cynthia Yaputera', nickname: 'Cynthia', team: 'Team Love', img: null, gen: '11th' },
+  { id: 1, name: 'Fiony Alveria', nickname: 'Fiony', team: 'Team Love', img: null, gen: '8th' },
+  { id: 14, name: 'Fritzy Rosmerian', nickname: 'Fritzy', team: 'Team Love', img: null, gen: '12th' },
+  { id: 6, name: 'Grace Octaviani', nickname: 'Gracie', team: 'Team Love', img: null, gen: '11th' },
+  { id: 12, name: 'Hillary Abigail', nickname: 'Lily', team: 'Team Love', img: null, gen: '12th' },
+  { id: 2, name: 'Indah Cahya', nickname: 'Indah', team: 'Team Love', img: null, gen: '9th' },
+  { id: 13, name: 'Jazzlyn Trisha', nickname: 'Trisha', team: 'Team Love', img: null, gen: '12th' },
+  { id: 4, name: 'Michelle Alexandra', nickname: 'Michie', team: 'Team Love', img: null, gen: '11th' },
+  { id: 15, name: 'Nayla Suji', nickname: 'Nayla', team: 'Team Love', img: null, gen: '12th' },
   // Team Dream (12 members)
-  { id: 16, name: 'Gita Sekar Andarini',  nickname: 'Gita',    team: 'Team Dream',   img: null, gen: '6th' },
-  { id: 17, name: 'Freya Jayawardana',    nickname: 'Freya',   team: 'Team Dream',   img: null, gen: '7th' },
-  { id: 18, name: 'Febriola Sinambela',   nickname: 'Olla',    team: 'Team Dream',   img: null, gen: '7th' },
-  { id: 19, name: 'Helisma Putri',        nickname: 'Eli',     team: 'Team Dream',   img: null, gen: '7th' },
-  { id: 20, name: 'Marsha Lenathea',      nickname: 'Marsha',  team: 'Team Dream',   img: null, gen: '9th' },
-  { id: 21, name: 'Jesslyn Elly',         nickname: 'Lyn',     team: 'Team Dream',   img: null, gen: '10th' },
-  { id: 22, name: 'Gabriela Abigail',     nickname: 'Ella',    team: 'Team Dream',   img: null, gen: '10th' },
-  { id: 23, name: 'Greesella Adhalia',    nickname: 'Greesel', team: 'Team Dream',   img: null, gen: '11th' },
-  { id: 24, name: 'Shabilqis Naila',      nickname: 'Nala',    team: 'Team Dream',   img: null, gen: '12th' },
-  { id: 25, name: 'Oline Manuel',         nickname: 'Oline',   team: 'Team Dream',   img: null, gen: '12th' },
-  { id: 26, name: 'Adeline Wijaya',       nickname: 'Delynn',  team: 'Team Dream',   img: null, gen: '12th' },
-  { id: 27, name: 'Nina Tutachia',        nickname: 'Nachia',  team: 'Team Dream',   img: null, gen: '12th' },
-  // Team Passion (14 members)
-  { id: 28, name: 'Angelina Christy',     nickname: 'Christy', team: 'Team Passion', img: null, gen: '7th' },
-  { id: 29, name: 'Mutiara Azzahra',      nickname: 'Muthe',   team: 'Team Passion', img: null, gen: '7th' },
-  { id: 30, name: 'Jessica Chandra',      nickname: 'Jessi',   team: 'Team Passion', img: null, gen: '7th' },
-  { id: 31, name: 'Lulu Salsabila',       nickname: 'Lulu',    team: 'Team Passion', img: null, gen: '8th' },
-  { id: 32, name: 'Cornelia Vanisa',      nickname: 'Oniel',   team: 'Team Passion', img: null, gen: '8th' },
-  { id: 33, name: 'Kathrina Irene',       nickname: 'Kathrina',team: 'Team Passion', img: null, gen: '9th' },
-  { id: 34, name: 'Raisha Syifa',         nickname: 'Raisha',  team: 'Team Passion', img: null, gen: '10th' },
-  { id: 35, name: 'Desy Natalia',         nickname: 'Daisy',   team: 'Team Passion', img: null, gen: '11th' },
-  { id: 36, name: 'Dena Natalia',         nickname: 'Danella', team: 'Team Passion', img: null, gen: '11th' },
-  { id: 37, name: 'Victoria Kimberly',    nickname: 'Kimmy',   team: 'Team Passion', img: null, gen: '11th' },
-  { id: 38, name: 'Catherina Vallencia',  nickname: 'Erine',   team: 'Team Passion', img: null, gen: '11th' },
-  { id: 39, name: 'Michelle Levia',       nickname: 'Levi',    team: 'Team Passion', img: null, gen: '12th' },
-  { id: 40, name: 'Abigail Rachel',       nickname: 'Aralie',  team: 'Team Passion', img: null, gen: '12th' },
-  { id: 41, name: 'Ribka Budiman',        nickname: 'Ribka',   team: 'Team Passion', img: null, gen: '12th' },
-  // 13th Gen Trainees
-  { id: 42, name: 'Astrella Virgiananda', nickname: 'Virgi',   team: 'Trainee',      img: null, gen: '13th' },
-  { id: 43, name: 'Aulia Riza',           nickname: 'Auwia',   team: 'Trainee',      img: null, gen: '13th' },
-  { id: 44, name: 'Bong Aprilli',         nickname: 'Rilly',   team: 'Trainee',      img: null, gen: '13th' },
-  { id: 45, name: 'Hagia Sopia',          nickname: 'Giaa',    team: 'Trainee',      img: null, gen: '13th' },
-  { id: 46, name: 'Humaira Ramadhani',    nickname: 'Maira',   team: 'Trainee',      img: null, gen: '13th' },
-  { id: 47, name: 'Jacqueline Immanuela', nickname: 'Ekin',    team: 'Trainee',      img: null, gen: '13th' },
-  { id: 48, name: 'Jemima Evodie',        nickname: 'Jemima',  team: 'Trainee',      img: null, gen: '13th' },
-  { id: 49, name: 'Mikaela Kusjanto',     nickname: 'Mikaela', team: 'Trainee',      img: null, gen: '13th' },
-  { id: 50, name: 'Nur Intan',            nickname: 'Intan',   team: 'Trainee',      img: null, gen: '13th' },
-  // 14th Gen Trainees
-  { id: 51, name: 'Afera Thalia',         nickname: 'Fera',    team: 'Trainee',      img: null, gen: '14th' },
-  { id: 52, name: 'Carissa Dini',         nickname: 'Carissa', team: 'Trainee',      img: null, gen: '14th' },
-  { id: 53, name: 'Christabella Bonita',  nickname: 'Bella',   team: 'Trainee',      img: null, gen: '14th' },
-  { id: 54, name: 'Fahira Putri',         nickname: 'Fahira',  team: 'Trainee',      img: null, gen: '14th' },
-  { id: 55, name: 'Fatimah Azzahra',      nickname: 'Rara',    team: 'Trainee',      img: null, gen: '14th' },
-  { id: 56, name: 'Heidi Suyangga',       nickname: 'Heidi',   team: 'Trainee',      img: null, gen: '14th' },
-  { id: 57, name: 'Maxine Faye',          nickname: 'Maxine',  team: 'Trainee',      img: null, gen: '14th' },
-  { id: 58, name: 'Putry Jazyta',         nickname: 'Jazzy',   team: 'Trainee',      img: null, gen: '14th' },
-  { id: 59, name: 'Ralyne Van Irwan',     nickname: 'Ralyne',  team: 'Trainee',      img: null, gen: '14th' },
-  { id: 60, name: 'Sona Kalyana',         nickname: 'Sona',    team: 'Trainee',      img: null, gen: '14th' },
+  { id: 26, name: 'Adeline Wijaya', nickname: 'Delynn', team: 'Team Dream', img: null, gen: '12th' },
+  { id: 18, name: 'Febriola Sinambela', nickname: 'Olla', team: 'Team Dream', img: null, gen: '7th' },
+  { id: 17, name: 'Freya Jayawardana', nickname: 'Freya', team: 'Team Dream', img: null, gen: '7th' },
+  { id: 22, name: 'Gabriela Abigail', nickname: 'Ella', team: 'Team Dream', img: null, gen: '10th' },
+  { id: 16, name: 'Gita Sekar Andarini', nickname: 'Gita', team: 'Team Dream', img: null, gen: '6th' },
+  { id: 23, name: 'Greesella Adhalia', nickname: 'Greesel', team: 'Team Dream', img: null, gen: '11th' },
+  { id: 19, name: 'Helisma Putri', nickname: 'Eli', team: 'Team Dream', img: null, gen: '7th' },
+  { id: 21, name: 'Jesslyn Elly', nickname: 'Lyn', team: 'Team Dream', img: null, gen: '10th' },
+  { id: 20, name: 'Marsha Lenathea', nickname: 'Marsha', team: 'Team Dream', img: null, gen: '9th' },
+  { id: 27, name: 'Nina Tutachia', nickname: 'Nachia', team: 'Team Dream', img: null, gen: '12th' },
+  { id: 25, name: 'Oline Manuel', nickname: 'Oline', team: 'Team Dream', img: null, gen: '12th' },
+  { id: 24, name: 'Shabilqis Naila', nickname: 'Nala', team: 'Team Dream', img: null, gen: '12th' },
+  // Team Passion (15 members)
+  { id: 40, name: 'Abigail Rachel', nickname: 'Aralie', team: 'Team Passion', img: null, gen: '12th' },
+  { id: 28, name: 'Angelina Christy', nickname: 'Christy', team: 'Team Passion', img: null, gen: '7th' },
+  { id: 38, name: 'Catherina Vallencia', nickname: 'Erine', team: 'Team Passion', img: null, gen: '11th' },
+  { id: 32, name: 'Cornelia Vanisa', nickname: 'Oniel', team: 'Team Passion', img: null, gen: '8th' },
+  { id: 36, name: 'Dena Natalia', nickname: 'Danella', team: 'Team Passion', img: null, gen: '11th' },
+  { id: 35, name: 'Desy Natalia', nickname: 'Daisy', team: 'Team Passion', img: null, gen: '11th' },
+  { id: 99, name: 'Feni Fitriyanti', nickname: 'Feni', team: 'Team Passion', img: null, gen: '3rd' },
+  { id: 30, name: 'Jessica Chandra', nickname: 'Jessi', team: 'Team Passion', img: null, gen: '7th' },
+  { id: 33, name: 'Kathrina Irene', nickname: 'Kathrina', team: 'Team Passion', img: null, gen: '9th' },
+  { id: 31, name: 'Lulu Salsabila', nickname: 'Lulu', team: 'Team Passion', img: null, gen: '8th' },
+  { id: 39, name: 'Michelle Levia', nickname: 'Levi', team: 'Team Passion', img: null, gen: '12th' },
+  { id: 29, name: 'Mutiara Azzahra', nickname: 'Muthe', team: 'Team Passion', img: null, gen: '7th' },
+  { id: 34, name: 'Raisha Syifa', nickname: 'Raisha', team: 'Team Passion', img: null, gen: '10th' },
+  { id: 41, name: 'Ribka Budiman', nickname: 'Ribka', team: 'Team Passion', img: null, gen: '12th' },
+  { id: 37, name: 'Victoria Kimberly', nickname: 'Kimmy', team: 'Team Passion', img: null, gen: '11th' },
+  // Trainee (19 members)
+  { id: 51, name: 'Afera Thalia', nickname: 'Fera', team: 'Trainee', img: null, gen: '14th' },
+  { id: 42, name: 'Astrella Virgiananda', nickname: 'Virgi', team: 'Trainee', img: null, gen: '13th' },
+  { id: 43, name: 'Aulia Riza', nickname: 'Auwia', team: 'Trainee', img: null, gen: '13th' },
+  { id: 44, name: 'Bong Aprilli', nickname: 'Rilly', team: 'Trainee', img: null, gen: '13th' },
+  { id: 52, name: 'Carissa Dini', nickname: 'Carissa', team: 'Trainee', img: null, gen: '14th' },
+  { id: 53, name: 'Christabella Bonita', nickname: 'Bella', team: 'Trainee', img: null, gen: '14th' },
+  { id: 54, name: 'Fahira Putri', nickname: 'Fahira', team: 'Trainee', img: null, gen: '14th' },
+  { id: 55, name: 'Fatimah Azzahra', nickname: 'Rara', team: 'Trainee', img: null, gen: '14th' },
+  { id: 45, name: 'Hagia Sopia', nickname: 'Giaa', team: 'Trainee', img: null, gen: '13th' },
+  { id: 56, name: 'Heidi Suyangga', nickname: 'Heidi', team: 'Trainee', img: null, gen: '14th' },
+  { id: 46, name: 'Humaira Ramadhani', nickname: 'Maira', team: 'Trainee', img: null, gen: '13th' },
+  { id: 47, name: 'Jacqueline Immanuela', nickname: 'Ekin', team: 'Trainee', img: null, gen: '13th' },
+  { id: 48, name: 'Jemima Evodie', nickname: 'Jemima', team: 'Trainee', img: null, gen: '13th' },
+  { id: 57, name: 'Maxine Faye', nickname: 'Maxine', team: 'Trainee', img: null, gen: '14th' },
+  { id: 49, name: 'Mikaela Kusjanto', nickname: 'Mikaela', team: 'Trainee', img: null, gen: '13th' },
+  { id: 50, name: 'Nur Intan', nickname: 'Intan', team: 'Trainee', img: null, gen: '13th' },
+  { id: 58, name: 'Putry Jazyta', nickname: 'Jazzy', team: 'Trainee', img: null, gen: '14th' },
+  { id: 59, name: 'Ralyne Van Irwan', nickname: 'Ralyne', team: 'Trainee', img: null, gen: '14th' },
+  { id: 60, name: 'Sona Kalyana', nickname: 'Sona', team: 'Trainee', img: null, gen: '14th' },
 ];
 
 // ── State ──────────────────────────────────
@@ -115,6 +115,43 @@ let filteredMembers = [];
 let slots = {}; // { catId: { love: member|null, dream: member|null, ... } }
 let currentDragMember = null;
 let isExcelMode = false;
+
+// ── Local Storage State ─────────────────────
+function saveSlotsToStorage() {
+  const data = {};
+  for (let catId in slots) {
+    data[catId] = {};
+    for (let colId in slots[catId]) {
+      const member = slots[catId][colId];
+      data[catId][colId] = member ? member.id : null;
+    }
+  }
+  localStorage.setItem('jkt48_slots', JSON.stringify(data));
+}
+
+function loadSlotsFromStorage() {
+  const stored = localStorage.getItem('jkt48_slots');
+  if (stored) {
+    try {
+      const data = JSON.parse(stored);
+      for (let catId in data) {
+        if (slots[catId]) {
+          for (let colId in data[catId]) {
+            if (slots[catId][colId] !== undefined) {
+              const memberId = data[catId][colId];
+              if (memberId) {
+                const member = allMembers.find(m => m.id === memberId);
+                if (member) slots[catId][colId] = member;
+              }
+            }
+          }
+        }
+      }
+    } catch (e) {
+      console.error('Error loading slots from storage', e);
+    }
+  }
+}
 
 // Pre-initialize matrix slots (9 categories x 5 teams = 45 cells)
 CATEGORIES.forEach(cat => {
@@ -171,50 +208,15 @@ function onPhotoError(imgEl, originalUrl, team) {
   }
 }
 
-async function loadMembers() {
-  const grid = document.getElementById('membersGrid');
-  grid.innerHTML = `<div class="loading-state"><div class="loading-spinner"></div><p>Memuat data anggota JKT48...</p></div>`;
-
-  try {
-    const res = await fetch('members.json', {
-      headers: { 'Accept': 'application/json' },
-      signal: AbortSignal.timeout(5000),
-    });
-
-    if (res.ok) {
-      const data = await res.json();
-      const raw = Array.isArray(data) ? data : (data.members || data.data || []);
-      if (raw.length > 0) {
-        allMembers = raw.map((m, i) => {
-          const teamName = TEAM_MAP[m.type] || 'Team Love';
-          const localPhoto = getLocalPhotoPath(m.name || m.full_name, m.type);
-          const fb = FALLBACK_MEMBERS.find(f => f.name.toLowerCase() === (m.name || m.full_name || '').toLowerCase());
-          return {
-            id: m.jkt48_member_id || m.id || i + 1,
-            name: m.name || m.full_name || 'Unknown',
-            nickname: m.nickname || (m.name || '').split(' ')[0],
-            team: teamName,
-            img: localPhoto,
-            originalUrl: m.photo || m.image_url || null,
-            gen: fb ? fb.gen : (m.gen || (m.type === 'TRAINEE' ? 'Trainee' : teamName)),
-          };
-        });
-      } else {
-        throw new Error('Empty members.json');
-      }
-    } else {
-      throw new Error(`HTTP ${res.status}`);
-    }
-  } catch (err) {
-    console.warn('Gagal memuat dari members.json, menggunakan data cadangan offline:', err.message);
-    allMembers = FALLBACK_MEMBERS.map(m => ({
-      ...m,
-      img: getLocalPhotoPath(m.name, m.team),
-      originalUrl: null,
-    }));
-  }
+function loadMembers() {
+  allMembers = FALLBACK_MEMBERS.map(m => ({
+    ...m,
+    img: getLocalPhotoPath(m.name, m.team),
+    originalUrl: null,
+  }));
 
   filteredMembers = [...allMembers];
+  loadSlotsFromStorage();
   renderMembersGrid();
   renderMatrixTable();
   updateStats();
@@ -265,7 +267,7 @@ function renderMembersGrid() {
         </div>
         <div class="member-info">
           <div class="member-name">${escHtml(m.name)}</div>
-          <div class="member-nickname">${escHtml(m.nickname)} • ${escHtml(m.gen)}</div>
+          <div class="member-nickname color-${m.team.toLowerCase().replace('team ', '')}">${escHtml(m.nickname)} • ${escHtml(m.gen)}</div>
         </div>
       </div>`;
   }).join('');
@@ -273,17 +275,17 @@ function renderMembersGrid() {
 
 function getTeamBadge(team) {
   const map = {
-    'Team Love':    { cls: 'badge-love',    label: '♥ Love' },
-    'Team Dream':   { cls: 'badge-dream',   label: '✦ Dream' },
-    'Team Passion': { cls: 'badge-passion', label: '★ Passion' },
-    'Trainee':      { cls: 'badge-trainee', label: '🌱 Trainee' },
+    'Team Love': { cls: 'badge-love', label: '<i data-lucide="heart" style="width:10px;height:10px;display:inline-block;vertical-align:middle;margin-right:2px"></i> Love' },
+    'Team Dream': { cls: 'badge-dream', label: '<i data-lucide="stars" style="width:10px;height:10px;display:inline-block;vertical-align:middle;margin-right:2px"></i> Dream' },
+    'Team Passion': { cls: 'badge-passion', label: '<i data-lucide="flame" style="width:10px;height:10px;display:inline-block;vertical-align:middle;margin-right:2px"></i> Passion' },
+    'Trainee': { cls: 'badge-trainee', label: '<i data-lucide="leaf" style="width:10px;height:10px;display:inline-block;vertical-align:middle;margin-right:2px"></i> Trainee' },
   };
   return map[team] || { cls: 'badge-trainee', label: team };
 }
 
 function getTeamEmoji(team) {
-  const map = { 'Team Love': '♥', 'Team Dream': '✦', 'Team Passion': '★', 'Trainee': '🌱' };
-  return map[team] || '🌸';
+  const map = { 'Team Love': '<i data-lucide="heart" style="width:14px;height:14px;"></i>', 'Team Dream': '<i data-lucide="cloud" style="width:14px;height:14px;"></i>', 'Team Passion': '<i data-lucide="flame" style="width:14px;height:14px;"></i>', 'Trainee': '<i data-lucide="leaf" style="width:14px;height:14px;"></i>' };
+  return map[team] || '<i data-lucide="user" style="width:14px;height:14px;"></i>';
 }
 
 // ── Filter Members ──────────────────────────
@@ -345,9 +347,8 @@ function renderMatrixTable() {
       </tr>`;
   }).join('');
 
-  // Re-apply zoom-out scale after table re-renders on mobile
-  if (typeof scaleMatrixTable === 'function') {
-    requestAnimationFrame(scaleMatrixTable);
+  if (window.lucide) {
+    lucide.createIcons();
   }
 }
 
@@ -361,7 +362,7 @@ function renderCellContent(member, catId, colId) {
     <div class="cell-content-pill">
       ${imgHtml}
       <span class="cell-member-name">${escHtml(member.nickname || member.name)}</span>
-      <button class="btn-cell-remove" onclick="removeMemberCell(event, '${catId}', '${colId}')" title="Hapus">✕</button>
+      <button class="btn-cell-remove" onclick="removeMemberCell(event, '${catId}', '${colId}')" title="Hapus"><i data-lucide="x" style="width:12px;height:12px;"></i></button>
     </div>`;
 }
 
@@ -511,6 +512,7 @@ function placeMemberInCell(catId, colId, member) {
   }
 
   slots[catId][colId] = member;
+  saveSlotsToStorage();
 
   renderMatrixTable();
   updateMemberCardStates();
@@ -520,6 +522,7 @@ function placeMemberInCell(catId, colId, member) {
 function removeMemberCell(event, catId, colId) {
   if (event) event.stopPropagation();
   slots[catId][colId] = null;
+  saveSlotsToStorage();
   renderMatrixTable();
   updateMemberCardStates();
   updateStats();
@@ -561,10 +564,10 @@ function updateMemberCardStates() {
 // ── Auto Fill Random ────────────────────────
 function autoFillRandom() {
   const byTeam = {
-    'Team Love':    allMembers.filter(m => m.team === 'Team Love'),
-    'Team Dream':   allMembers.filter(m => m.team === 'Team Dream'),
+    'Team Love': allMembers.filter(m => m.team === 'Team Love'),
+    'Team Dream': allMembers.filter(m => m.team === 'Team Dream'),
     'Team Passion': allMembers.filter(m => m.team === 'Team Passion'),
-    'Trainee':      allMembers.filter(m => m.team === 'Trainee'),
+    'Trainee': allMembers.filter(m => m.team === 'Trainee'),
   };
 
   CATEGORIES.forEach(cat => {
@@ -585,6 +588,7 @@ function autoFillRandom() {
     });
   });
 
+  saveSlotsToStorage();
   renderMatrixTable();
   updateMemberCardStates();
   updateStats();
@@ -598,6 +602,7 @@ function clearAllSlots() {
       slots[cat.id][col.id] = null;
     });
   });
+  localStorage.removeItem('jkt48_slots');
   renderMatrixTable();
   updateMemberCardStates();
   updateStats();
@@ -636,11 +641,23 @@ function updateStats() {
   const score = calculateGroupScore();
   const tier = getGroupTier(score);
 
-  document.getElementById('statMemberCount').textContent = `👥 ${count} / 45 Slot Terisi`;
+  const statCountEl = document.getElementById('statMemberCount');
+  if (statCountEl) {
+    statCountEl.innerHTML = `<i data-lucide="users" style="width: 16px; height: 16px; margin-right: 6px;"></i> ${count} / 45 Slot Terisi`;
+    if (window.lucide) lucide.createIcons({ root: statCountEl });
+  }
+
   const statScoreEl = document.getElementById('statScore');
-  if (statScoreEl) statScoreEl.textContent = `⭐ Score: ${score}`;
+  if (statScoreEl) {
+    statScoreEl.innerHTML = `<i data-lucide="star" style="width: 16px; height: 16px; margin-right: 6px;"></i> Score: ${score}`;
+    if (window.lucide) lucide.createIcons({ root: statScoreEl });
+  }
+
   const statTierEl = document.getElementById('statTier');
-  if (statTierEl) statTierEl.textContent = `🏅 ${tier.name}`;
+  if (statTierEl) {
+    statTierEl.innerHTML = `<i data-lucide="award" style="width: 16px; height: 16px; margin-right: 6px;"></i> ${tier.name}`;
+    if (window.lucide) lucide.createIcons({ root: statTierEl });
+  }
 
   const progressEl = document.getElementById('matrixProgressBar');
   if (progressEl) {
@@ -658,12 +675,18 @@ function toggleExcelMode() {
   const btn = document.getElementById('btnToggleExcel');
   if (isExcelMode) {
     document.body.classList.add('excel-classic-mode');
-    btn.textContent = '🎨 Mode Premium (Glass)';
-    showToast('📊 Mode Excel Classic diaktifkan! Persis seperti spreadsheet.');
+    if (btn) {
+      btn.innerHTML = `<i data-lucide="sparkles" style="width: 16px; height: 16px; margin-right: 6px;"></i> Mode Premium (Glass)`;
+      if (window.lucide) lucide.createIcons({ root: btn });
+    }
+    showToast('Mode Excel Classic diaktifkan! Persis seperti spreadsheet.');
   } else {
     document.body.classList.remove('excel-classic-mode');
-    btn.textContent = '📊 Mode Excel Classic';
-    showToast('🎨 Mode Premium (Glass) diaktifkan!');
+    if (btn) {
+      btn.innerHTML = `<i data-lucide="layout-grid" style="width: 16px; height: 16px; margin-right: 6px;"></i> Mode Excel Classic`;
+      if (window.lucide) lucide.createIcons({ root: btn });
+    }
+    showToast('Mode Premium (Glass) diaktifkan!');
   }
 }
 
@@ -699,11 +722,12 @@ async function downloadPNG() {
       allowTaint: true,
       backgroundColor: '#191228',
       logging: false,
+      windowWidth: 1200,
       ignoreElements: (el) => el.classList && el.classList.contains('btn-cell-remove'),
     });
 
     // Gunakan Blob download agar stabil di semua browser
-    canvas.toBlob(function(blob) {
+    canvas.toBlob(function (blob) {
       if (!blob) {
         showToast('❌ Browser memblokir export gambar. Buka halaman via server lokal (lihat panduan).');
         if (btn) btn.innerHTML = '⬇️ Download Image';
@@ -820,43 +844,17 @@ function escHtml(str) {
     .replace(/'/g, '&#39;');
 }
 
-// ── Background Particles ──────────────────────
-function initParticles() {
-  const container = document.getElementById('bgParticles');
-  const emojis = ['🌸', '✨', '⭐', '💫', '🌟', '💜', '🎵', '🎤', '👑'];
-  for (let i = 0; i < 20; i++) {
-    const p = document.createElement('div');
-    p.style.cssText = `
-      position:absolute;
-      font-size:${10 + Math.random()*16}px;
-      left:${Math.random()*100}%;
-      top:${Math.random()*100}%;
-      opacity:${0.05 + Math.random()*0.12};
-      animation: particleFloat ${6+Math.random()*10}s ease-in-out ${Math.random()*-12}s infinite;
-      pointer-events:none;
-      user-select:none;
-    `;
-    p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-    container.appendChild(p);
-  }
 
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes particleFloat {
-      0%,100% { transform: translateY(0) rotate(0deg); }
-      25% { transform: translateY(-30px) rotate(10deg); }
-      75% { transform: translateY(20px) rotate(-10deg); }
-    }
-  `;
-  document.head.appendChild(style);
-}
 
 // ── Init ──────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  initParticles();
   renderMatrixTable();
   updateStats();
   loadMembers();
+
+  if (window.lucide) {
+    lucide.createIcons();
+  }
 
   // Close modals on Escape
   document.addEventListener('keydown', e => {
@@ -864,46 +862,4 @@ document.addEventListener('DOMContentLoaded', () => {
       ['modalShare', 'modalGuide'].forEach(closeModal);
     }
   });
-
-  // Dynamic table zoom-out for mobile
-  scaleMatrixTable();
-  window.addEventListener('resize', scaleMatrixTable);
 });
-
-// ── Dynamic Table Scale (Mobile Zoom-Out) ─────
-function scaleMatrixTable() {
-  const table = document.getElementById('idolMatrixTable');
-  const wrapper = document.getElementById('matrixWrapper');
-  if (!table || !wrapper) return;
-
-  const DESIGN_WIDTH = 680; // px — the table's natural width
-
-  if (window.innerWidth <= 600) {
-    // Available width = wrapper's client width (minus any margin/padding)
-    const availW = wrapper.clientWidth || window.innerWidth - 16;
-    const scale = Math.min(1, availW / DESIGN_WIDTH);
-    const scaledHeight = table.scrollHeight * scale;
-
-    table.style.width = DESIGN_WIDTH + 'px';
-    table.style.minWidth = DESIGN_WIDTH + 'px';
-    table.style.maxWidth = DESIGN_WIDTH + 'px';
-    table.style.transform = `scale(${scale})`;
-    table.style.transformOrigin = 'top left';
-    // Collapse whitespace left by scale transform
-    table.style.marginBottom = (scaledHeight - table.scrollHeight) + 'px';
-
-    // Keep wrapper height correct so page doesn't have huge blank gap
-    wrapper.style.height = (scaledHeight + 12) + 'px';
-    wrapper.style.overflow = 'hidden';
-  } else {
-    // Reset on desktop
-    table.style.width = '';
-    table.style.minWidth = '';
-    table.style.maxWidth = '';
-    table.style.transform = '';
-    table.style.transformOrigin = '';
-    table.style.marginBottom = '';
-    wrapper.style.height = '';
-    wrapper.style.overflow = '';
-  }
-}

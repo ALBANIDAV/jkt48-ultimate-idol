@@ -15,15 +15,10 @@
   <link rel="icon" type="image/png" href="logo/logo.png" />
   <link rel="shortcut icon" href="logo/logo.png" />
   <link rel="stylesheet" href="style.css?v=4.6" />
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-  <!-- Animated Background -->
-  <div class="bg-animated">
-    <div class="bg-orb orb1"></div>
-    <div class="bg-orb orb2"></div>
-    <div class="bg-orb orb3"></div>
-    <div class="bg-particles" id="bgParticles"></div>
-  </div>
+
 
   <!-- Header -->
   <header class="site-header">
@@ -35,8 +30,9 @@
         </div>
       </div>
       <nav class="header-nav">
-        <button class="nav-btn active" id="navBuild" onclick="showTab('build')">🏗️ Build</button>
-        <button class="nav-btn" id="navGuide" onclick="showTab('guide')">📖 Guide</button>
+        <button class="nav-btn" id="navGuide" onclick="showTab('guide')">
+          <i data-lucide="book-open" style="width: 16px; height: 16px; margin-right: 6px;"></i> Guide
+        </button>
       </nav>
     </div>
   </header>
@@ -53,11 +49,13 @@
         <!-- Left: Members Pool -->
         <aside class="members-panel glass-card">
           <div class="panel-header">
-            <h2 class="panel-title">🌸 Anggota JKT48</h2>
+            <h2 class="panel-title"><i data-lucide="users" style="width: 20px; height: 20px; margin-right: 6px;"></i> Anggota JKT48</h2>
             <div class="search-row">
               <div class="search-input-wrap">
                 <input id="searchMember" class="search-input" type="text" placeholder="Cari nama..." oninput="filterMembers()" />
-                <button class="btn-clear-search" id="btnClearSearch" onclick="clearSearchMember()" title="Hapus pencarian">✖</button>
+                <button class="btn-clear-search" id="btnClearSearch" onclick="clearSearchMember()" title="Hapus pencarian">
+                  <i data-lucide="x" style="width: 14px; height: 14px;"></i>
+                </button>
               </div>
               <select id="filterTeam" class="filter-select" onchange="filterMembers()">
                 <option value="">Semua Tim</option>
@@ -69,7 +67,6 @@
             </div>
             <div class="member-count-info">
               <span id="memberPoolCount">Loading...</span>
-              <button class="btn-refresh" onclick="loadMembers()" title="Refresh data">🔄</button>
             </div>
           </div>
           <div class="members-grid" id="membersGrid">
@@ -93,13 +90,13 @@
             </div>
             <div class="control-buttons-row">
               <button class="btn-mode-toggle" id="btnToggleExcel" onclick="toggleExcelMode()" title="Ganti tampilan bergaya Excel klasik / Premium">
-                📊 Mode Excel Classic
+                <i data-lucide="layout-grid" style="width: 16px; height: 16px; margin-right: 4px;"></i> Mode Excel Classic
               </button>
               <button class="btn-action btn-clear" onclick="clearAllSlots()" id="btnClear">
-                🗑️ Clear All
+                <i data-lucide="trash-2" style="width: 16px; height: 16px; margin-right: 4px;"></i> Clear All
               </button>
               <button class="btn-action btn-save" onclick="downloadPNG()" id="btnSave">
-                ⬇️ Download Image
+                <i data-lucide="download" style="width: 16px; height: 16px; margin-right: 4px;"></i> Download Image
               </button>
             </div>
           </div>
@@ -112,7 +109,7 @@
                 <tr class="header-name-row">
                   <th colspan="6" class="th-player-name">
                     <div class="player-name-container">
-                      <span class="player-name-icon">👑</span>
+                      <span class="player-name-icon"><i data-lucide="crown" style="width: 24px; height: 24px;"></i></span>
                       <input id="groupName" class="player-name-input" type="text" placeholder="Masukkan nama kamu" value="" maxlength="40" />
                     </div>
                   </th>
@@ -122,8 +119,6 @@
                   <th class="th-diagonal">
                     <div class="diag-header-box">
                       <span class="diag-top">KATEGORI</span>
-                      <span class="diag-sep">/</span>
-                      <span class="diag-bottom">TIM</span>
                     </div>
                   </th>
                   <th class="th-team th-love">Love</th>
@@ -140,7 +135,7 @@
           </div>
 
           <div class="table-help-hint">
-            💡 <span><strong>Tips:</strong> Drag & drop anggota dari panel kiri ke sel tabel, atau <strong>ketuk (tap) kartu member lalu ketuk sel tabel</strong> untuk langsung mengisinya (mudah untuk Mobile)! Kolom <strong>JKT48</strong> bisa diisi oleh anggota dari tim mana saja sebagai pilihan Ultimate!</span>
+            <i data-lucide="lightbulb" style="width: 16px; height: 16px; margin-right: 6px;"></i> <span><strong>Tips:</strong> Drag & drop anggota dari panel kiri ke sel tabel, atau <strong>ketuk (tap) kartu member lalu ketuk sel tabel</strong> untuk langsung mengisinya (mudah untuk Mobile)! Kolom <strong>JKT48</strong> bisa diisi oleh anggota dari tim mana saja sebagai pilihan Ultimate!</span>
           </div>
 
         </div>
@@ -155,8 +150,10 @@
   <div class="modal-overlay" id="modalGuide" onclick="closeModal('modalGuide')">
     <div class="modal-box modal-lg glass-card" onclick="event.stopPropagation()" style="max-height: 85vh; overflow-y: auto; text-align: left; padding: 28px;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 14px;">
-        <h2 class="section-title" style="margin: 0; font-size: 1.3rem;">📖 Cara Bermain (Matrix Edition)</h2>
-        <button class="btn-clear-search" onclick="closeModal('modalGuide')" title="Tutup" style="font-size: 1rem; width: 32px; height: 32px;">✖</button>
+        <h2 class="section-title" style="margin: 0; font-size: 1.3rem;"><i data-lucide="book-open" style="width: 20px; height: 20px; margin-right: 6px;"></i> Cara Bermain (Matrix Edition)</h2>
+        <button class="btn-clear-search" onclick="closeModal('modalGuide')" title="Tutup" style="font-size: 1rem; width: 32px; height: 32px;">
+          <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+        </button>
       </div>
       <div class="guide-steps">
         <div class="guide-step">
@@ -184,7 +181,7 @@
           <div class="step-num">4</div>
           <div class="step-content">
             <h3>Coba Mode Excel Classic</h3>
-            <p>Klik tombol <strong>"📊 Mode Excel Classic"</strong> untuk mengubah tampilan tabel menjadi seperti spreadsheet Excel autentik yang ikonik dan siap discreenshot!</p>
+            <p>Klik tombol <strong><i data-lucide="layout-grid" style="width: 14px; height: 14px; display: inline-block;"></i> Mode Excel Classic</strong> untuk mengubah tampilan tabel menjadi seperti spreadsheet Excel autentik yang ikonik dan siap discreenshot!</p>
           </div>
         </div>
         <div class="guide-step">
@@ -196,21 +193,23 @@
         </div>
       </div>
       <div class="category-guide" style="margin-top: 24px; border-top: 1px solid var(--border); padding-top: 18px;">
-        <h3 style="margin-bottom: 12px; font-size: 1.1rem; color: var(--text-primary);">🗂️ Kategori Slot</h3>
+        <h3 style="margin-bottom: 12px; font-size: 1.1rem; color: var(--text-primary);"><i data-lucide="folder-open" style="width: 18px; height: 18px; margin-right: 6px;"></i> Kategori Slot</h3>
         <div class="cat-list">
-          <div class="cat-item"><span>👁️</span><strong>Visual :</strong> Wajah dan penampilan terbaik</div>
-          <div class="cat-item"><span>💃</span><strong>Dance :</strong> Penari andalan grup</div>
-          <div class="cat-item"><span>🎤</span><strong>Vocal :</strong> Suara merdu dan powerful</div>
-          <div class="cat-item"><span>❤️</span><strong>Fan Service :</strong> Paling dekat dengan fans</div>
-          <div class="cat-item"><span>🎙️</span><strong>MC :</strong> Host dan bawaan panggung terbaik</div>
-          <div class="cat-item"><span>🌟</span><strong>Stage Performance :</strong> Energi panggung terbaik</div>
-          <div class="cat-item"><span>👗</span><strong>Fashion Sense :</strong> Paling stylish dan trendy</div>
-          <div class="cat-item"><span>👑</span><strong>Leadership :</strong> Pemimpin dan center grup</div>
-          <div class="cat-item"><span>✨</span><strong>Aura :</strong> Daya tarik dan karisma alami</div>
+          <div class="cat-item"><span><i data-lucide="eye" style="width:16px;height:16px;"></i></span><strong>Visual</strong> Wajah memukau dengan visual yang bikin gagal fokus</div>
+          <div class="cat-item"><span><i data-lucide="music-4" style="width:16px;height:16px;"></i></span><strong>Dance</strong> Dancer andalan yang enerjik dan selalu memanaskan panggung</div>
+          <div class="cat-item"><span><i data-lucide="mic-2" style="width:16px;height:16px;"></i></span><strong>Vocal</strong> Vokalis idaman dengan suara merdu yang bikin merinding</div>
+          <div class="cat-item"><span><i data-lucide="heart" style="width:16px;height:16px;"></i></span><strong>Fan Service</strong> Member yang paling jago mengambil hati dan manja sama fans</div>
+          <div class="cat-item"><span><i data-lucide="mic" style="width:16px;height:16px;"></i></span><strong>MC</strong> Paling asik ngomong, seru, dan bisa menghidupkan suasana</div>
+          <div class="cat-item"><span><i data-lucide="star" style="width:16px;height:16px;"></i></span><strong>Stage Performance</strong> Aura panggungnya kuat banget, selalu ngasih 100% energi</div>
+          <div class="cat-item"><span><i data-lucide="shirt" style="width:16px;height:16px;"></i></span><strong>Fashion Sense</strong> Selalu tampil kece dan *stylish* di setiap kesempatan</div>
+          <div class="cat-item"><span><i data-lucide="crown" style="width:16px;height:16px;"></i></span><strong>Leadership</strong> Sosok pemimpin berkarisma yang bisa mengayomi member lain</div>
+          <div class="cat-item"><span><i data-lucide="sparkles" style="width:16px;height:16px;"></i></span><strong>Aura</strong> Punya pesona alami yang bikin mata selalu tertuju padanya</div>
         </div>
       </div>
       <div style="text-align: center; margin-top: 24px;">
-        <button class="btn-action btn-share" onclick="closeModal('modalGuide')" style="padding: 10px 32px; font-size: 0.95rem;">✅ Mengerti, Ayo Build!</button>
+        <button class="btn-action btn-share" onclick="closeModal('modalGuide')" style="padding: 10px 32px; font-size: 0.95rem;">
+          <i data-lucide="check" style="width: 16px; height: 16px; margin-right: 6px;"></i> Mengerti, Ayo Build!
+        </button>
       </div>
     </div>
   </div>
@@ -218,7 +217,7 @@
   <!-- Share Modal -->
   <div class="modal-overlay" id="modalShare" onclick="closeModal('modalShare')">
     <div class="modal-box glass-card" onclick="event.stopPropagation()">
-      <div class="modal-icon">📤</div>
+      <div class="modal-icon"><i data-lucide="share" style="width: 48px; height: 48px;"></i></div>
       <h3 class="modal-title">Bagikan Tabel Impianmu!</h3>
       <p class="modal-desc" id="modalShareDesc"></p>
       <div class="share-buttons">
@@ -235,10 +234,12 @@
           Share ke WhatsApp
         </button>
         <button class="share-btn copy" onclick="copyShareLink()">
-          📋 Salin Link
+          <i data-lucide="copy" style="width: 18px; height: 18px; margin-right: 6px; display: inline-block; vertical-align: middle;"></i> Salin Link
         </button>
       </div>
-      <button class="btn-action btn-clear" onclick="closeModal('modalShare')" style="margin-top:12px">✖ Tutup</button>
+      <button class="btn-action btn-clear" onclick="closeModal('modalShare')" style="margin-top:12px">
+        <i data-lucide="x" style="width: 16px; height: 16px; margin-right: 6px;"></i> Tutup
+      </button>
     </div>
   </div>
 
