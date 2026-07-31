@@ -38,6 +38,19 @@
   <!-- MAIN CONTENT -->
   <main class="main-content">
 
+    <!-- Disclaimer Banner / Pemberitahuan Hiburan -->
+    <div class="disclaimer-banner glass-card" id="disclaimerBanner">
+      <div class="disclaimer-banner-content">
+        <div class="disclaimer-icon-wrap">
+          <i data-lucide="heart-handshake" class="disclaimer-icon"></i>
+        </div>
+        <div class="disclaimer-text">
+          <span class="disclaimer-title">💖 Catatan dari Fans untuk Fans</span>
+          <p>Web ini cuma buat <strong>seru-seruan dan hiburan</strong> bareng, ya! Semua susunan idol di sini adalah <strong>opini pribadi &amp; selera kamu</strong>, bukan penilaian resmi terhadap member JKT48. Ingat, semua member punya keunikan dan pesonanya masing-masing! ✨</p>
+        </div>
+      </div>
+    </div>
+
     <!-- ===== TAB: BUILD ===== -->
     <section id="tabBuild" class="tab-section active">
 
@@ -130,10 +143,20 @@
                 <!-- Rendered dynamically by JS -->
               </tbody>
             </table>
+            <!-- Export Disclaimer Footer (Included in Downloaded Image / Screenshot) -->
+            <div class="matrix-export-footer">
+              <div class="export-footer-left">
+                <span class="export-brand"><i data-lucide="sparkles" style="width: 14px; height: 14px; display: inline-block; vertical-align: -2px; margin-right: 4px;"></i> JKT48 Ultimate Idol</span>
+                <span class="export-subtitle"> • Game Seru-seruan Antar-Fans</span>
+              </div>
+              <div class="export-footer-right">
+                <span>💖 Dibuat khusus untuk hiburan &amp; bukan penilaian resmi. Semua member punya pesonanya masing-masing!</span>
+              </div>
+            </div>
           </div>
 
           <div class="table-help-hint">
-            <i data-lucide="lightbulb" style="width: 16px; height: 16px; margin-right: 6px;"></i> <span><strong>Tips:</strong> Drag & drop anggota dari panel kiri ke sel tabel, atau <strong>ketuk (tap) kartu member lalu ketuk sel tabel</strong> untuk langsung mengisinya (mudah untuk Mobile)! Kolom <strong>JKT48</strong> bisa diisi oleh anggota dari tim mana saja sebagai pilihan Ultimate!</span>
+            <i data-lucide="lightbulb" style="width: 16px; height: 16px; margin-right: 6px;"></i> <span><strong>Tips:</strong> Drag &amp; drop member dari panel kiri, atau <strong>tap kartu member lalu tap sel tabel</strong> supaya lebih gampang! Isi kategori dengan member yang <strong>menurutmu paling pas</strong>—kolom merah <strong>JKT48</strong> adalah pilihan All-Star versimu!</span>
           </div>
 
         </div>
@@ -153,6 +176,16 @@
           <i data-lucide="x" style="width: 16px; height: 16px;"></i>
         </button>
       </div>
+      <!-- Disclaimer Notice in Guide Modal -->
+      <div class="modal-disclaimer-box" style="background: linear-gradient(135deg, rgba(255, 107, 157, 0.15), rgba(155, 93, 229, 0.15)); border: 1px solid rgba(255, 107, 157, 0.4); border-radius: 10px; padding: 14px 18px; margin-bottom: 22px; display: flex; gap: 12px; align-items: flex-start;">
+        <div style="color: var(--pink-light); flex-shrink: 0; margin-top: 2px;">
+          <i data-lucide="heart-handshake" style="width: 22px; height: 22px;"></i>
+        </div>
+        <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;">
+          <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">💖 Catatan dari Fans untuk Fans</strong>
+          Web ini cuma buat hiburan dan seru-seruan aja, ya! Semua susunan idol di sini adalah <strong>opini pribadi &amp; selera kamu</strong>, bukan penilaian resmi ataupun ajang banding-membandingkan member. Semua member punya keunikan dan pesonanya sendiri! ✨
+        </div>
+      </div>
       <div class="guide-steps">
         <div class="guide-step">
           <div class="step-num">1</div>
@@ -171,8 +204,8 @@
         <div class="guide-step">
           <div class="step-num">3</div>
           <div class="step-content">
-            <h3>Isi Sel Tabel Menurut Kategori & Tim</h3>
-            <p>Seret anggota ke sel yang bersesuaian dengan 9 Kategori (Visual, Dance, Vocal, Fan Service, MC, Stage Performance, Fashion Sense, Leadership, Aura) dan kolom Tim (Love, Dream, Passion, Trainee). Kolom merah <strong>JKT48</strong> adalah pilihan All-Star keseluruhan dari semua tim!</p>
+            <h3>Siapa yang Paling Cocok Menurutmu?</h3>
+            <p>Taruh member ke sel yang menurutmu paling pas di 9 Kategori (Visual, Dance, Vocal, Fan Service, MC, Stage Performance, Fashion Sense, Leadership, Aura) dan kolom Tim (Love, Dream, Passion, Trainee). Kolom merah <strong>JKT48</strong> itu tempatnya pilihan All-Star dari semua tim versi kamu!</p>
           </div>
         </div>
         <div class="guide-step">
@@ -185,23 +218,24 @@
         <div class="guide-step">
           <div class="step-num">5</div>
           <div class="step-content">
-            <h3>Simpan ke Gambar PNG</h3>
-            <p>Simpan tabel impianmu dalam bentuk PNG kualitas tinggi dan pamerkan ke fans lain!</p>
+            <h3>Simpan &amp; Pamerkan ke Fans Lain!</h3>
+            <p>Download hasil tabel versimu jadi gambar PNG jernih, terus share seru-seruan ini bareng teman-teman fans lainnya!</p>
           </div>
         </div>
       </div>
       <div class="category-guide" style="margin-top: 24px; border-top: 1px solid var(--border); padding-top: 18px;">
-        <h3 style="margin-bottom: 12px; font-size: 1.1rem; color: var(--text-primary);"><i data-lucide="folder-open" style="width: 18px; height: 18px; margin-right: 6px;"></i> Kategori Slot</h3>
+        <h3 style="margin-bottom: 6px; font-size: 1.1rem; color: var(--text-primary);"><i data-lucide="folder-open" style="width: 18px; height: 18px; margin-right: 6px;"></i> Kategori Slot</h3>
+        <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 12px;">Yuk, pilih siapa member yang paling pas di setiap kategori menurut seleramu:</p>
         <div class="cat-list">
-          <div class="cat-item"><span><i data-lucide="eye" style="width:16px;height:16px;"></i></span><strong>Visual</strong> Wajah memukau dengan visual yang bikin gagal fokus</div>
-          <div class="cat-item"><span><i data-lucide="music-4" style="width:16px;height:16px;"></i></span><strong>Dance</strong> Dancer andalan yang enerjik dan selalu memanaskan panggung</div>
-          <div class="cat-item"><span><i data-lucide="mic-2" style="width:16px;height:16px;"></i></span><strong>Vocal</strong> Vokalis idaman dengan suara merdu yang bikin merinding</div>
-          <div class="cat-item"><span><i data-lucide="heart" style="width:16px;height:16px;"></i></span><strong>Fan Service</strong> Member yang paling jago mengambil hati dan manja sama fans</div>
-          <div class="cat-item"><span><i data-lucide="mic" style="width:16px;height:16px;"></i></span><strong>MC</strong> Paling asik ngomong, seru, dan bisa menghidupkan suasana</div>
-          <div class="cat-item"><span><i data-lucide="star" style="width:16px;height:16px;"></i></span><strong>Stage Performance</strong> Aura panggungnya kuat banget, selalu ngasih 100% energi</div>
-          <div class="cat-item"><span><i data-lucide="shirt" style="width:16px;height:16px;"></i></span><strong>Fashion Sense</strong> Selalu tampil kece dan *stylish* di setiap kesempatan</div>
-          <div class="cat-item"><span><i data-lucide="crown" style="width:16px;height:16px;"></i></span><strong>Leadership</strong> Sosok pemimpin berkarisma yang bisa mengayomi member lain</div>
-          <div class="cat-item"><span><i data-lucide="sparkles" style="width:16px;height:16px;"></i></span><strong>Aura</strong> Punya pesona alami yang bikin mata selalu tertuju padanya</div>
+          <div class="cat-item"><span><i data-lucide="eye" style="width:16px;height:16px;"></i></span><strong>Visual</strong> Visual memukau yang bikin kamu gagal fokus</div>
+          <div class="cat-item"><span><i data-lucide="music-4" style="width:16px;height:16px;"></i></span><strong>Dance</strong> Dancer andalan yang selalu bikin panggung pecah dan enerjik</div>
+          <div class="cat-item"><span><i data-lucide="mic-2" style="width:16px;height:16px;"></i></span><strong>Vocal</strong> Vokalis idaman dengan suara merdu yang bikin adem dengerinnya</div>
+          <div class="cat-item"><span><i data-lucide="heart" style="width:16px;height:16px;"></i></span><strong>Fan Service</strong> Member yang paling jago ngambil hati dan dekat banget sama fans</div>
+          <div class="cat-item"><span><i data-lucide="mic" style="width:16px;height:16px;"></i></span><strong>MC</strong> Paling seru pas ngomong dan selalu berhasil ngakakin suasana</div>
+          <div class="cat-item"><span><i data-lucide="star" style="width:16px;height:16px;"></i></span><strong>Stage Performance</strong> Aura panggungnya kuat banget, selalu totalitas 100%</div>
+          <div class="cat-item"><span><i data-lucide="shirt" style="width:16px;height:16px;"></i></span><strong>Fashion Sense</strong> Selalu tampil stylish dan kece di setiap kesempatan</div>
+          <div class="cat-item"><span><i data-lucide="crown" style="width:16px;height:16px;"></i></span><strong>Leadership</strong> Sosok panutan yang karismatik dan ngemong member lain</div>
+          <div class="cat-item"><span><i data-lucide="sparkles" style="width:16px;height:16px;"></i></span><strong>Aura</strong> Punya pesona alami yang bikin mata selalu tertuju ke dia</div>
         </div>
       </div>
       <div style="text-align: center; margin-top: 24px;">
@@ -216,7 +250,7 @@
   <div class="modal-overlay" id="modalShare" onclick="closeModal('modalShare')">
     <div class="modal-box glass-card" onclick="event.stopPropagation()">
       <div class="modal-icon"><i data-lucide="share" style="width: 48px; height: 48px;"></i></div>
-      <h3 class="modal-title">Bagikan Tabel Impianmu!</h3>
+      <h3 class="modal-title">Bagikan Tabel Pilihan Versimu!</h3>
       <p class="modal-desc" id="modalShareDesc"></p>
       <div class="share-buttons">
         <button class="share-btn twitter" id="shareTwitterBtn" onclick="shareToTwitter()">
@@ -238,6 +272,34 @@
       <button class="btn-action btn-clear" onclick="closeModal('modalShare')" style="margin-top:12px">
         <i data-lucide="x" style="width: 16px; height: 16px; margin-right: 6px;"></i> Tutup
       </button>
+    </div>
+  </div>
+
+  <!-- Clean Disclaimer Modal Pop-up -->
+  <div class="modal-overlay" id="modalWelcome" onclick="closeWelcomeModal()">
+    <div class="modal-box disclaimer-popup-box glass-card" onclick="event.stopPropagation()">
+      <div class="disclaimer-popup-header">
+        <div class="disclaimer-popup-icon-wrap">
+          <i data-lucide="heart-handshake" style="width: 22px; height: 22px;"></i>
+        </div>
+        <h3 class="disclaimer-popup-title">Catatan dari Fans untuk Fans</h3>
+      </div>
+      
+      <div class="disclaimer-popup-body">
+        <p class="disclaimer-popup-lead">
+          Web ini dibuat khusus untuk <strong>seru-seruan dan hiburan bareng</strong> antar-fans JKT48.
+        </p>
+        <p class="disclaimer-popup-p">
+          Semua susunan idol di sini adalah <strong>murni opini pribadi dan selera kamu</strong>, bukan penilaian resmi terhadap member mana pun. Setiap member memiliki keunikan dan pesonanya masing-masing! ✨
+        </p>
+        <p class="disclaimer-popup-muted">
+          *Pembuat website tidak bertanggung jawab atas akibat dari membagikan tabel opini ini ke media sosial.
+        </p>
+      </div>
+
+      <div class="disclaimer-popup-footer">
+        <button class="btn-disclaimer-mengerti" onclick="closeWelcomeModal()">Mengerti</button>
+      </div>
     </div>
   </div>
 

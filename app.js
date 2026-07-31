@@ -506,9 +506,9 @@ function placeMemberInCell(catId, colId, member) {
   }
 
   if (colObj.id === 'jkt48') {
-    showToast(`👑 ${member.nickname} menjadi Ultimate JKT48 untuk ${catObj.title}!`);
+    showToast(`👑 ${member.nickname} jadi pilihan Ultimate versimu untuk ${catObj.title}!`);
   } else {
-    showToast(`🌸 ${member.nickname} → ${catObj.title} (${colObj.name})`);
+    showToast(`🌸 ${member.nickname} → ${catObj.title} (${colObj.name}) menurutmu!`);
   }
 
   slots[catId][colId] = member;
@@ -773,7 +773,7 @@ function getGroupName() {
 function getShareText() {
   const name = getGroupName();
   const score = calculateGroupScore();
-  return `🌸 JKT48 Ultimate Matrix oleh ${name} (Score: ${score})\n\nBuat dan isi tabel idol impianmu per kategori & tim di: Build Your Ultimate Idol JKT48! #JKT48 #BuildYourUltimateIdol`;
+  return `🌸 JKT48 Ultimate Matrix versi ${name} (Score: ${score})\n\nYuk, coba susun tabel idol favoritmu sendiri (murni game seru-seruan antar-fans) di: Build Your Ultimate Idol JKT48! #JKT48 #BuildYourUltimateIdol`;
 }
 
 function shareGroup() {
@@ -824,6 +824,16 @@ function closeModal(id) {
   document.getElementById(id)?.classList.remove('open');
 }
 
+function openWelcomeModal() {
+  const mod = document.getElementById('modalWelcome');
+  if (mod) mod.classList.add('open');
+}
+
+function closeWelcomeModal() {
+  const mod = document.getElementById('modalWelcome');
+  if (mod) mod.classList.remove('open');
+}
+
 // ── Toast ─────────────────────────────────────
 let toastTimeout;
 function showToast(msg) {
@@ -848,6 +858,7 @@ function escHtml(str) {
 
 // ── Init ──────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+  localStorage.removeItem('jkt48_disclaimer_dismissed');
   renderMatrixTable();
   updateStats();
   loadMembers();
@@ -856,10 +867,15 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
+  // Auto-show disclaimer modal whenever user enters web or refreshes
+  setTimeout(() => {
+    openWelcomeModal();
+  }, 350);
+
   // Close modals on Escape
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
-      ['modalShare', 'modalGuide'].forEach(closeModal);
+      ['modalShare', 'modalGuide', 'modalWelcome'].forEach(closeModal);
     }
   });
 });

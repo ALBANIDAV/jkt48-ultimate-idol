@@ -1258,6 +1258,104 @@ body.excel-classic-mode .cell-member-name {
 
 .modal-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
+/* ── Clean Disclaimer Modal Pop-up (Natural, Non-AI-slop design) ── */
+.disclaimer-popup-box {
+  max-width: 500px !important;
+  width: 100%;
+  padding: 0 !important;
+  background: #111827 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: left !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
+}
+
+.disclaimer-popup-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px 18px;
+  background: #1f2937;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.disclaimer-popup-icon-wrap {
+  color: #ff6b9d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.disclaimer-popup-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f9fafb;
+}
+
+.disclaimer-popup-body {
+  padding: 24px 24px 10px;
+  color: #e5e7eb;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.disclaimer-popup-lead {
+  margin: 0 0 14px 0;
+  color: #f3f4f6;
+}
+
+.disclaimer-popup-p {
+  margin: 0 0 16px 0;
+  color: #d1d5db;
+}
+
+.disclaimer-popup-muted {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #9ca3af;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.disclaimer-popup-footer {
+  padding: 16px 24px 22px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-disclaimer-mengerti {
+  background: #0284c7;
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn-disclaimer-mengerti:hover {
+  background: #0369a1;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+  .disclaimer-popup-header {
+    padding: 16px 20px;
+  }
+  .disclaimer-popup-body {
+    padding: 20px 20px 10px;
+    font-size: 0.9rem;
+  }
+  .disclaimer-popup-footer {
+    padding: 14px 20px 20px;
+  }
+}
+
 /* ── Share Buttons ── */
 .share-buttons { display: flex; flex-direction: column; gap: 10px; width: 100%; }
 
@@ -1724,4 +1822,226 @@ body.excel-classic-mode .cell-member-name {
     gap: 6px;
   }
 }
+
+/* ==========================================
+   DISCLAIMER BANNER & EXPORT FOOTER STYLES
+   ========================================== */
+@keyframes disclaimerSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes disclaimerPulseGlow {
+  0% {
+    border-color: rgba(255, 107, 157, 0.35);
+    box-shadow: 0 4px 18px rgba(255, 107, 157, 0.08), inset 0 0 12px rgba(255, 107, 157, 0.03);
+  }
+  50% {
+    border-color: rgba(155, 93, 229, 0.55);
+    box-shadow: 0 4px 24px rgba(155, 93, 229, 0.16), inset 0 0 16px rgba(155, 93, 229, 0.06);
+  }
+  100% {
+    border-color: rgba(255, 107, 157, 0.5);
+    box-shadow: 0 4px 22px rgba(255, 107, 157, 0.15), inset 0 0 14px rgba(255, 107, 157, 0.05);
+  }
+}
+
+@keyframes disclaimerShimmer {
+  0% {
+    left: -100%;
+  }
+  25% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+@keyframes disclaimerIconHeartbeat {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 12px rgba(255, 107, 157, 0.4);
+  }
+  15% {
+    transform: scale(1.12);
+    box-shadow: 0 0 18px rgba(255, 107, 157, 0.7);
+  }
+  30% {
+    transform: scale(1.02);
+    box-shadow: 0 0 14px rgba(255, 107, 157, 0.5);
+  }
+  45% {
+    transform: scale(1.08);
+    box-shadow: 0 0 16px rgba(255, 107, 157, 0.65);
+  }
+}
+
+.disclaimer-banner {
+  margin: 0 0 20px 0;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.13), rgba(155, 93, 229, 0.13));
+  border: 1px solid rgba(255, 107, 157, 0.35);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px rgba(255, 107, 157, 0.08);
+  transition: var(--transition-slow);
+  position: relative;
+  overflow: hidden;
+  animation: disclaimerSlideIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+             disclaimerPulseGlow 4s ease-in-out infinite alternate;
+}
+
+.disclaimer-banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  animation: disclaimerShimmer 6s ease-in-out infinite;
+}
+
+.disclaimer-banner:hover {
+  border-color: rgba(255, 107, 157, 0.75);
+  box-shadow: 0 6px 28px rgba(255, 107, 157, 0.25);
+  transform: translateY(-2px);
+}
+
+.disclaimer-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.disclaimer-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+  box-shadow: 0 0 12px rgba(255, 107, 157, 0.4);
+  animation: disclaimerIconHeartbeat 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.disclaimer-icon-wrap:hover {
+  transform: scale(1.15) rotate(6deg);
+}
+
+.disclaimer-text {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  line-height: 1.45;
+}
+
+.disclaimer-title {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--pink-light);
+  margin-bottom: 2px;
+  font-size: 0.92rem;
+}
+
+.disclaimer-text p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.disclaimer-text p strong {
+  color: var(--text-primary);
+}
+
+/* ── Matrix Export Footer (Watermark on PNG / screenshot) ── */
+.matrix-export-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  margin-top: 14px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-sm);
+  flex-wrap: wrap;
+}
+
+.export-brand {
+  font-weight: 700;
+  color: var(--pink-light);
+  display: inline-flex;
+  align-items: center;
+}
+
+.export-subtitle {
+  color: var(--text-muted);
+}
+
+.export-footer-right {
+  color: #d1d5db;
+  font-style: italic;
+}
+
+/* Excel Classic Mode adjustment for Export Footer */
+body.excel-classic-mode .matrix-export-footer {
+  background: #f8fafc;
+  border-top: 1px solid #cbd5e1;
+  color: #475569;
+}
+body.excel-classic-mode .export-brand {
+  color: #1e293b;
+}
+body.excel-classic-mode .export-footer-right {
+  color: #334155;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .disclaimer-banner {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .disclaimer-icon-wrap {
+    width: 34px;
+    height: 34px;
+  }
+  .disclaimer-text {
+    font-size: 0.8rem;
+  }
+  .disclaimer-title {
+    font-size: 0.85rem;
+  }
+  .matrix-export-footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+}
+
 
