@@ -3,7 +3,7 @@
 ![Project Status](https://img.shields.io/badge/Status-Active-brightgreen) ![License](https://img.shields.io/badge/License-Open_Source-blue)
 
 **Build Your Ultimate Idol JKT48!**
-Sebuah web interaktif buatan fans untuk para fans JKT48. Susun matriks idol favoritmu berdasarkan berbagai kategori kemampuan dan pesona, mulai dari *Visual, Dance, Vocal,* hingga *Stage Performance!*
+Sebuah web interaktif buatan fans untuk para fans JKT48. Susun matriks idol favoritmu berdasarkan 9 kategori kemampuan dan pesona: *Visual, Dance, Vocal, Fan Service, MC, Stage Performance, Fashion Sense, Leadership, dan Aura!*
 
 ---
 
