@@ -1,19 +1,19 @@
 /* =============================================
    BUILD YOUR ULTIMATE IDOL – JKT48
-   Ultimate Matrix Table Logic (45 Slots)
+   v7.0 – Modal Picker, No Drag Panel
    ============================================= */
 
 // ── Constants & Config ──────────────────────
 const CATEGORIES = [
-  { id: 'visual', emoji: '<i data-lucide="eye" style="width:16px;height:16px;margin-right:6px"></i>', title: 'Visual' },
-  { id: 'dance', emoji: '<i data-lucide="music-4" style="width:16px;height:16px;margin-right:6px"></i>', title: 'Dance' },
-  { id: 'vocal', emoji: '<i data-lucide="mic-2" style="width:16px;height:16px;margin-right:6px"></i>', title: 'Vocal' },
-  { id: 'fanservice', emoji: '<i data-lucide="heart" style="width:16px;height:16px;margin-right:6px"></i>', title: 'Fan Service' },
-  { id: 'mc', emoji: '<i data-lucide="mic" style="width:16px;height:16px;margin-right:6px"></i>', title: 'MC' },
-  { id: 'stage', emoji: '<i data-lucide="star" style="width:16px;height:16px;margin-right:6px"></i>', title: 'Stage Performance' },
-  { id: 'fashion', emoji: '<i data-lucide="shirt" style="width:16px;height:16px;margin-right:6px"></i>', title: 'Fashion Sense' },
-  { id: 'leadership', emoji: '<i data-lucide="crown" style="width:16px;height:16px;margin-right:6px"></i>', title: 'Leadership' },
-  { id: 'aura', emoji: '<i data-lucide="sparkles" style="width:16px;height:16px;margin-right:6px"></i>', title: 'Aura' },
+  { id: 'visual', emoji: '<i data-lucide="eye" style="width:16px;height:16px;"></i>', title: 'Visual' },
+  { id: 'dance', emoji: '<i data-lucide="music-4" style="width:16px;height:16px;"></i>', title: 'Dance' },
+  { id: 'vocal', emoji: '<i data-lucide="mic-2" style="width:16px;height:16px;"></i>', title: 'Vocal' },
+  { id: 'fanservice', emoji: '<i data-lucide="heart" style="width:16px;height:16px;"></i>', title: 'Fan Service' },
+  { id: 'mc', emoji: '<i data-lucide="mic" style="width:16px;height:16px;"></i>', title: 'MC' },
+  { id: 'stage', emoji: '<i data-lucide="star" style="width:16px;height:16px;"></i>', title: 'Stage Performance' },
+  { id: 'fashion', emoji: '<i data-lucide="shirt" style="width:16px;height:16px;"></i>', title: 'Fashion Sense' },
+  { id: 'leadership', emoji: '<i data-lucide="crown" style="width:16px;height:16px;"></i>', title: 'Leadership' },
+  { id: 'aura', emoji: '<i data-lucide="sparkles" style="width:16px;height:16px;"></i>', title: 'Aura' },
 ];
 
 const TEAM_COLS = [
@@ -21,15 +21,13 @@ const TEAM_COLS = [
   { id: 'dream', name: 'Dream', matchTeam: 'Team Dream' },
   { id: 'passion', name: 'Passion', matchTeam: 'Team Passion' },
   { id: 'trainee', name: 'Trainee', matchTeam: 'Trainee' },
-  { id: 'jkt48', name: 'JKT48', matchTeam: 'ANY' }, // All-Star Overall pick
+  { id: 'jkt48', name: 'JKT48', matchTeam: 'ANY' },
 ];
 
 const RANDOM_GROUP_NAMES = [
   'Ferdy', 'Aditya', 'Rizky', 'Bima', 'Andika', 'Dimas',
   'Fauzan', 'Satria', 'Bayu', 'Reza', 'Gilang', 'Deka',
   'Pratama', 'Arif', 'Yudha', 'Farhan', 'Naufal', 'Bagas',
-  'Hadi', 'Kevin', 'Rangga', 'Alvin', 'Fandy', 'Erik',
-  'Danish', 'Putra', 'Arya', 'Fajar', 'Rafi', 'Dino',
 ];
 
 const TIER_CONFIG = [
@@ -45,8 +43,8 @@ const FALLBACK_MEMBERS = [
   // Team Love (15 members)
   { id: 9, name: 'Alya Amanda', nickname: 'Alya', team: 'Team Love', img: null, gen: '11th' },
   { id: 3, name: 'Anindya Ramadhani', nickname: 'Anin', team: 'Team Love', img: null, gen: '11th' },
-  { id: 10, name: 'Aurellia', nickname: 'Lia', team: 'Team Love', img: null, gen: '11th' },
-  { id: 11, name: 'Aurhel Alana', nickname: 'Lana', team: 'Team Love', img: null, gen: '11th' },
+  { id: 10, name: 'Aurellia', nickname: 'Lia', team: 'Team Love', img: null, gen: '10th' },
+  { id: 11, name: 'Aurhel Alana', nickname: 'Lana', team: 'Team Love', img: null, gen: '12th' },
   { id: 8, name: 'Cathleen Nixie', nickname: 'Nixie', team: 'Team Love', img: null, gen: '11th' },
   { id: 5, name: 'Celline Thefani', nickname: 'Elin', team: 'Team Love', img: null, gen: '11th' },
   { id: 7, name: 'Cynthia Yaputera', nickname: 'Cynthia', team: 'Team Love', img: null, gen: '11th' },
@@ -74,7 +72,7 @@ const FALLBACK_MEMBERS = [
   // Team Passion (15 members)
   { id: 40, name: 'Abigail Rachel', nickname: 'Aralie', team: 'Team Passion', img: null, gen: '12th' },
   { id: 28, name: 'Angelina Christy', nickname: 'Christy', team: 'Team Passion', img: null, gen: '7th' },
-  { id: 38, name: 'Catherina Vallencia', nickname: 'Erine', team: 'Team Passion', img: null, gen: '11th' },
+  { id: 38, name: 'Catherina Vallencia', nickname: 'Erine', team: 'Team Passion', img: null, gen: '12th' },
   { id: 32, name: 'Cornelia Vanisa', nickname: 'Oniel', team: 'Team Passion', img: null, gen: '8th' },
   { id: 36, name: 'Dena Natalia', nickname: 'Danella', team: 'Team Passion', img: null, gen: '11th' },
   { id: 35, name: 'Desy Natalia', nickname: 'Daisy', team: 'Team Passion', img: null, gen: '11th' },
@@ -86,7 +84,7 @@ const FALLBACK_MEMBERS = [
   { id: 29, name: 'Mutiara Azzahra', nickname: 'Muthe', team: 'Team Passion', img: null, gen: '7th' },
   { id: 34, name: 'Raisha Syifa', nickname: 'Raisha', team: 'Team Passion', img: null, gen: '10th' },
   { id: 41, name: 'Ribka Budiman', nickname: 'Ribka', team: 'Team Passion', img: null, gen: '12th' },
-  { id: 37, name: 'Victoria Kimberly', nickname: 'Kimmy', team: 'Team Passion', img: null, gen: '11th' },
+  { id: 37, name: 'Victoria Kimberly', nickname: 'Kimmy', team: 'Team Passion', img: null, gen: '12th' },
   // Trainee (19 members)
   { id: 51, name: 'Afera Thalia', nickname: 'Fera', team: 'Trainee', img: null, gen: '14th' },
   { id: 42, name: 'Astrella Virgiananda', nickname: 'Virgi', team: 'Trainee', img: null, gen: '13th' },
@@ -111,19 +109,22 @@ const FALLBACK_MEMBERS = [
 
 // ── State ──────────────────────────────────
 let allMembers = [];
-let filteredMembers = [];
-let slots = {}; // { catId: { love: member|null, dream: member|null, ... } }
-let currentDragMember = null;
+let slots = {};
 let isExcelMode = false;
 
-// ── Local Storage State ─────────────────────
+// Picker state
+let pickerCatId = null;
+let pickerColId = null;
+let pickerFilterTeam = '';
+
+// ── Local Storage ─────────────────────────
 function saveSlotsToStorage() {
   const data = {};
   for (let catId in slots) {
     data[catId] = {};
     for (let colId in slots[catId]) {
-      const member = slots[catId][colId];
-      data[catId][colId] = member ? member.id : null;
+      const m = slots[catId][colId];
+      data[catId][colId] = m ? m.id : null;
     }
   }
   localStorage.setItem('jkt48_slots', JSON.stringify(data));
@@ -131,192 +132,81 @@ function saveSlotsToStorage() {
 
 function loadSlotsFromStorage() {
   const stored = localStorage.getItem('jkt48_slots');
-  if (stored) {
-    try {
-      const data = JSON.parse(stored);
-      for (let catId in data) {
-        if (slots[catId]) {
-          for (let colId in data[catId]) {
-            if (slots[catId][colId] !== undefined) {
-              const memberId = data[catId][colId];
-              if (memberId) {
-                const member = allMembers.find(m => m.id === memberId);
-                if (member) slots[catId][colId] = member;
-              }
-            }
-          }
+  if (!stored) return;
+  try {
+    const data = JSON.parse(stored);
+    for (let catId in data) {
+      if (!slots[catId]) continue;
+      for (let colId in data[catId]) {
+        if (slots[catId][colId] === undefined) continue;
+        const memberId = data[catId][colId];
+        if (memberId) {
+          const member = allMembers.find(m => m.id === memberId);
+          if (member) slots[catId][colId] = member;
         }
       }
-    } catch (e) {
-      console.error('Error loading slots from storage', e);
     }
+  } catch (e) {
+    console.error('Error loading slots', e);
   }
 }
 
-// Pre-initialize matrix slots (9 categories x 5 teams = 45 cells)
+// Pre-initialize slots
 CATEGORIES.forEach(cat => {
   slots[cat.id] = {};
-  TEAM_COLS.forEach(col => {
-    slots[cat.id][col.id] = null;
-  });
+  TEAM_COLS.forEach(col => { slots[cat.id][col.id] = null; });
 });
 
-// ── Member Scores (Generated deterministically) ──
-function getMemberScore(memberId, catId, colId) {
-  const seed = (memberId * 31 + catId.length * 17 + colId.length * 11) % 100;
-  const base = 60 + ((memberId * 7 + catId.charCodeAt(0) * 3) % 40);
-  return Math.min(100, Math.max(50, base));
-}
-
-// ── API & Data Loading ──────────────────────
-const TEAM_MAP = {
-  'LOVE': 'Team Love',
-  'DREAM': 'Team Dream',
-  'PASSION': 'Team Passion',
-  'TRAINEE': 'Trainee',
-  'JKT48_VIRTUAL': 'Trainee',
-};
-
+// ── Photo Helpers ─────────────────────────
 function getLocalPhotoPath(name, teamOrType) {
   let folder = 'Team Love';
-  if (teamOrType === 'DREAM' || teamOrType === 'Team Dream') folder = 'Team Dream';
-  else if (teamOrType === 'PASSION' || teamOrType === 'Team Passion') folder = 'Team Passion';
-  else if (teamOrType === 'TRAINEE' || teamOrType === 'Trainee') folder = 'Trainee';
-
+  if (teamOrType === 'Team Dream') folder = 'Team Dream';
+  else if (teamOrType === 'Team Passion') folder = 'Team Passion';
+  else if (teamOrType === 'Trainee') folder = 'Trainee';
   const cleanName = (name || 'Unknown').trim().replace(/\s+/g, '_');
   return encodeURI(`${folder}/${cleanName}.jpg`);
 }
 
-function getPhotoProxyUrl(url, width = 300) {
-  return url || '';
-}
-
-function onPhotoError(imgEl, originalUrl, team) {
-  const step = parseInt(imgEl.getAttribute('data-err-step') || '0', 10);
+function onPhotoError(imgEl, team) {
   const wrap = imgEl.parentElement;
-
-  if (step === 0 && originalUrl && !imgEl.src.includes('weserv.nl')) {
-    imgEl.setAttribute('data-err-step', '1');
-    const cleanUrl = originalUrl.replace(/^https?:\/\//, '');
-    imgEl.src = `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}&w=300&output=webp`;
-  } else {
-    if (wrap) {
-      const badge = wrap.querySelector('.member-team-badge');
-      wrap.innerHTML = `<div class="member-img-placeholder">${getTeamEmoji(team)}</div>`;
-      if (badge) wrap.appendChild(badge);
-    }
+  if (wrap) {
+    wrap.innerHTML = `<div class="picker-member-placeholder">${getTeamEmoji(team)}</div>`;
   }
 }
 
+function onCellPhotoError(imgEl, team) {
+  const wrap = imgEl.parentElement;
+  if (wrap) {
+    const name = wrap.querySelector('.cell-member-name');
+    const btn = wrap.querySelector('.btn-cell-remove');
+    const nameHtml = name ? name.outerHTML : '';
+    const btnHtml = btn ? btn.outerHTML : '';
+    imgEl.outerHTML = `<div class="cell-mini-emoji">${getTeamEmoji(team)}</div>`;
+  }
+}
+
+function getTeamEmoji(team) {
+  const map = {
+    'Team Love': '<i data-lucide="heart" style="width:14px;height:14px;"></i>',
+    'Team Dream': '<i data-lucide="cloud" style="width:14px;height:14px;"></i>',
+    'Team Passion': '<i data-lucide="flame" style="width:14px;height:14px;"></i>',
+    'Trainee': '<i data-lucide="leaf" style="width:14px;height:14px;"></i>',
+  };
+  return map[team] || '<i data-lucide="user" style="width:14px;height:14px;"></i>';
+}
+
+// ── Load Members ─────────────────────────
 function loadMembers() {
   allMembers = FALLBACK_MEMBERS.map(m => ({
     ...m,
     img: getLocalPhotoPath(m.name, m.team),
-    originalUrl: null,
   }));
-
-  filteredMembers = [...allMembers];
   loadSlotsFromStorage();
-  renderMembersGrid();
   renderMatrixTable();
   updateStats();
 }
 
-// ── Render Members Grid ─────────────────────
-function renderMembersGrid() {
-  const grid = document.getElementById('membersGrid');
-  const countEl = document.getElementById('memberPoolCount');
-
-  if (!filteredMembers.length) {
-    grid.innerHTML = `<div class="loading-state" style="grid-column:1/-1"><p style="font-size:2rem">😔</p><p>Tidak ada anggota ditemukan</p></div>`;
-    countEl.textContent = '0 anggota';
-    return;
-  }
-
-  countEl.textContent = `${filteredMembers.length} / ${allMembers.length} anggota`;
-
-  grid.innerHTML = filteredMembers.map(m => {
-    // Check if member is placed anywhere in the matrix
-    let placeCount = 0;
-    CATEGORIES.forEach(cat => {
-      TEAM_COLS.forEach(col => {
-        if (slots[cat.id][col.id]?.id === m.id) placeCount++;
-      });
-    });
-
-    const teamBadge = getTeamBadge(m.team);
-    const placeBadge = placeCount > 0 ? `<span class="member-place-badge" title="Dipasang di ${placeCount} kategori">👑 ${placeCount}x</span>` : '';
-    const photoUrl = getPhotoProxyUrl(m.img, 300);
-    const imgHtml = photoUrl
-      ? `<img class="member-img" src="${escHtml(photoUrl)}" alt="${escHtml(m.name)}" referrerpolicy="no-referrer" onerror="onPhotoError(this, '${escHtml(m.originalUrl || m.img || '')}', '${escHtml(m.team)}')" loading="lazy">`
-      : `<div class="member-img-placeholder">${getTeamEmoji(m.team)}</div>`;
-
-    return `
-      <div class="member-card ${placeCount > 0 ? 'placed' : ''}"
-           id="mc-${m.id}"
-           draggable="true"
-           ondragstart="onDragStart(event, ${m.id})"
-           ondragend="onDragEnd(event)"
-           onclick="onMemberClick(${m.id})"
-           title="${escHtml(m.name)} (${escHtml(m.team)})"
-           data-member-id="${m.id}">
-        <div class="member-img-wrap">
-          ${imgHtml}
-          <span class="member-team-badge ${teamBadge.cls}">${teamBadge.label}</span>
-          ${placeBadge}
-        </div>
-        <div class="member-info">
-          <div class="member-name">${escHtml(m.name)}</div>
-          <div class="member-nickname color-${m.team.toLowerCase().replace('team ', '')}">${escHtml(m.nickname)} • ${escHtml(m.gen)}</div>
-        </div>
-      </div>`;
-  }).join('');
-}
-
-function getTeamBadge(team) {
-  const map = {
-    'Team Love': { cls: 'badge-love', label: '<i data-lucide="heart" style="width:10px;height:10px;display:inline-block;vertical-align:middle;margin-right:2px"></i> Love' },
-    'Team Dream': { cls: 'badge-dream', label: '<i data-lucide="stars" style="width:10px;height:10px;display:inline-block;vertical-align:middle;margin-right:2px"></i> Dream' },
-    'Team Passion': { cls: 'badge-passion', label: '<i data-lucide="flame" style="width:10px;height:10px;display:inline-block;vertical-align:middle;margin-right:2px"></i> Passion' },
-    'Trainee': { cls: 'badge-trainee', label: '<i data-lucide="leaf" style="width:10px;height:10px;display:inline-block;vertical-align:middle;margin-right:2px"></i> Trainee' },
-  };
-  return map[team] || { cls: 'badge-trainee', label: team };
-}
-
-function getTeamEmoji(team) {
-  const map = { 'Team Love': '<i data-lucide="heart" style="width:14px;height:14px;"></i>', 'Team Dream': '<i data-lucide="cloud" style="width:14px;height:14px;"></i>', 'Team Passion': '<i data-lucide="flame" style="width:14px;height:14px;"></i>', 'Trainee': '<i data-lucide="leaf" style="width:14px;height:14px;"></i>' };
-  return map[team] || '<i data-lucide="user" style="width:14px;height:14px;"></i>';
-}
-
-// ── Filter Members ──────────────────────────
-function filterMembers() {
-  const q = document.getElementById('searchMember').value.toLowerCase().trim();
-  const team = document.getElementById('filterTeam').value;
-
-  const clearBtn = document.getElementById('btnClearSearch');
-  if (clearBtn) {
-    if (q.length > 0) clearBtn.classList.add('show');
-    else clearBtn.classList.remove('show');
-  }
-
-  filteredMembers = allMembers.filter(m => {
-    const matchQ = !q || m.name.toLowerCase().includes(q) || m.nickname.toLowerCase().includes(q);
-    const matchT = !team || m.team === team;
-    return matchQ && matchT;
-  });
-
-  renderMembersGrid();
-}
-
-function clearSearchMember() {
-  const inputEl = document.getElementById('searchMember');
-  if (inputEl) {
-    inputEl.value = '';
-  }
-  filterMembers();
-}
-
-// ── Render Matrix Table (9 Rows x 5 Team Cols) ──
+// ── Render Matrix Table ─────────────────────
 function renderMatrixTable() {
   const tbody = document.getElementById('matrixTableBody');
   if (!tbody) return;
@@ -327,9 +217,6 @@ function renderMatrixTable() {
       return `
         <td class="td-matrix-cell"
             id="cell-${cat.id}-${col.id}"
-            ondragover="onDragOverCell(event, '${cat.id}', '${col.id}')"
-            ondragleave="onDragLeaveCell(event, '${cat.id}', '${col.id}')"
-            ondrop="onDropCell(event, '${cat.id}', '${col.id}')"
             onclick="onCellClick('${cat.id}', '${col.id}')">
           ${placed ? renderCellContent(placed, cat.id, col.id) : `<span class="cell-empty-hint">+ Pilih</span>`}
         </td>`;
@@ -347,15 +234,12 @@ function renderMatrixTable() {
       </tr>`;
   }).join('');
 
-  if (window.lucide) {
-    lucide.createIcons();
-  }
+  if (window.lucide) lucide.createIcons();
 }
 
 function renderCellContent(member, catId, colId) {
-  const photoUrl = getPhotoProxyUrl(member.img, 100);
-  const imgHtml = photoUrl
-    ? `<img class="cell-mini-avatar" src="${escHtml(photoUrl)}" alt="${escHtml(member.nickname)}" referrerpolicy="no-referrer" onerror="onPhotoError(this, '${escHtml(member.originalUrl || '')}', '${escHtml(member.team)}')">`
+  const imgHtml = member.img
+    ? `<img class="cell-mini-avatar" src="${escHtml(member.img)}" alt="${escHtml(member.nickname)}" referrerpolicy="no-referrer" onerror="onCellPhotoError(this, '${escHtml(member.team)}')">`
     : `<div class="cell-mini-emoji">${getTeamEmoji(member.team)}</div>`;
 
   return `
@@ -366,258 +250,194 @@ function renderCellContent(member, catId, colId) {
     </div>`;
 }
 
-// ── Drag & Drop Handlers ────────────────────
-function onDragStart(event, memberId) {
-  const member = allMembers.find(m => m.id === memberId);
-  if (!member) return;
-
-  currentDragMember = member;
-  event.dataTransfer.effectAllowed = 'move';
-  event.dataTransfer.setData('text/plain', String(memberId));
-
-  const card = document.getElementById(`mc-${memberId}`);
-  if (card) {
-    setTimeout(() => card.classList.add('dragging'), 0);
-  }
-}
-
-function onDragEnd(event) {
-  if (currentDragMember) {
-    const card = document.getElementById(`mc-${currentDragMember.id}`);
-    if (card) card.classList.remove('dragging');
-  }
-  currentDragMember = null;
-}
-
-function onDragOverCell(event, catId, colId) {
-  event.preventDefault();
-  const colObj = TEAM_COLS.find(c => c.id === colId);
-  const cell = document.getElementById(`cell-${catId}-${colId}`);
-
-  if (currentDragMember && colObj.matchTeam !== 'ANY' && currentDragMember.team !== colObj.matchTeam) {
-    event.dataTransfer.dropEffect = 'none';
-    if (cell) {
-      cell.classList.remove('drag-over');
-      cell.style.borderColor = 'rgba(255, 75, 75, 0.8)';
-    }
-    return;
-  }
-
-  event.dataTransfer.dropEffect = 'move';
-  if (cell) {
-    cell.style.borderColor = '';
-    cell.classList.add('drag-over');
-  }
-}
-
-function onDragLeaveCell(event, catId, colId) {
-  const cell = document.getElementById(`cell-${catId}-${colId}`);
-  if (cell) {
-    cell.classList.remove('drag-over');
-    cell.style.borderColor = '';
-  }
-}
-
-function onDropCell(event, catId, colId) {
-  event.preventDefault();
-  const cell = document.getElementById(`cell-${catId}-${colId}`);
-  if (cell) {
-    cell.classList.remove('drag-over');
-    cell.style.borderColor = '';
-  }
-
-  const memberId = parseInt(event.dataTransfer.getData('text/plain'));
-  const member = allMembers.find(m => m.id === memberId);
-  if (!member) return;
-
-  const colObj = TEAM_COLS.find(c => c.id === colId);
-  if (colObj.matchTeam !== 'ANY' && member.team !== colObj.matchTeam) {
-    showToast(`❌ ${member.nickname} adalah anggota ${member.team}, tidak bisa dipasang di kolom ${colObj.name}!`);
-    return;
-  }
-
-  placeMemberInCell(catId, colId, member);
-}
-
-// ── Click / Tap to Place (Desktop & Mobile) ──
-let selectedMember = null;
-
-function clearTapSelection() {
-  selectedMember = null;
-  document.querySelectorAll('.member-card').forEach(c => {
-    c.classList.remove('selected-for-tap');
-    c.style.outline = '';
-  });
-  document.querySelectorAll('.td-matrix-cell').forEach(cell => {
-    cell.classList.remove('tap-target');
-  });
-}
-
-function onMemberClick(memberId) {
-  const member = allMembers.find(m => m.id === memberId);
-  if (!member) return;
-
-  if (selectedMember?.id === memberId) {
-    clearTapSelection();
-    showToast(`Batal memilih ${member.nickname}`);
-    return;
-  }
-
-  clearTapSelection();
-  selectedMember = member;
-
-  const card = document.getElementById(`mc-${memberId}`);
-  if (card) card.classList.add('selected-for-tap');
-
-  // Highlight all cells where this member can be placed
-  CATEGORIES.forEach(cat => {
-    TEAM_COLS.forEach(col => {
-      if (col.matchTeam === 'ANY' || col.matchTeam === member.team) {
-        const cellEl = document.getElementById(`cell-${cat.id}-${col.id}`);
-        if (cellEl) cellEl.classList.add('tap-target');
-      }
-    });
-  });
-
-  showToast(`✅ ${member.nickname} dipilih! Ketuk sel tabel bercahaya untuk langsung mengisi.`);
-}
-
+// ── Cell Click → Open Member Picker ─────────
 function onCellClick(catId, colId) {
-  if (selectedMember) {
-    const colObj = TEAM_COLS.find(c => c.id === colId);
-    if (colObj.matchTeam !== 'ANY' && selectedMember.team !== colObj.matchTeam) {
-      showToast(`❌ ${selectedMember.nickname} adalah anggota ${selectedMember.team}, tidak bisa dipasang di kolom ${colObj.name}!`);
-      return;
-    }
-
-    placeMemberInCell(catId, colId, selectedMember);
-    clearTapSelection();
-  }
+  openMemberPicker(catId, colId);
 }
 
-// ── Place & Remove Member in Matrix Cell ─────
-function placeMemberInCell(catId, colId, member) {
-  const colObj = TEAM_COLS.find(c => c.id === colId);
-  const catObj = CATEGORIES.find(c => c.id === catId);
+function openMemberPicker(catId, colId) {
+  pickerCatId = catId;
+  pickerColId = colId;
+  pickerFilterTeam = '';
 
-  if (colObj.matchTeam !== 'ANY' && member.team !== colObj.matchTeam) {
-    showToast(`❌ ${member.nickname} adalah anggota ${member.team}, tidak bisa dipasang di kolom ${colObj.name}!`);
+  const catObj = CATEGORIES.find(c => c.id === catId);
+  const colObj = TEAM_COLS.find(c => c.id === colId);
+
+  // Update header
+  document.getElementById('pickerCatIcon').innerHTML = catObj.emoji;
+  document.getElementById('pickerCatTitle').textContent = `${catObj.title} — ${colObj.name}`;
+
+  const subtitle = colObj.matchTeam === 'ANY'
+    ? 'Pilih dari semua tim (All-Star)'
+    : `Hanya anggota ${colObj.matchTeam}`;
+  document.getElementById('pickerTeamBadge').textContent = subtitle;
+
+  // Show/hide team filter tabs (only for JKT48 column)
+  const filtersEl = document.getElementById('pickerTeamFilters');
+  if (colObj.matchTeam === 'ANY') {
+    const teams = ['Semua', 'Team Love', 'Team Dream', 'Team Passion', 'Trainee'];
+    filtersEl.innerHTML = teams.map(t => {
+      const val = t === 'Semua' ? '' : t;
+      const label = t === 'Semua' ? 'Semua' : t.replace('Team ', '');
+      return `<button class="picker-team-tab ${val === '' ? 'active' : ''}" onclick="setPickerTeamFilter('${val}')">${label}</button>`;
+    }).join('');
+    filtersEl.style.display = 'flex';
+  } else {
+    filtersEl.innerHTML = '';
+    filtersEl.style.display = 'none';
+  }
+
+  // Show/hide remove button
+  const removeBtn = document.getElementById('pickerBtnRemove');
+  removeBtn.style.display = slots[catId][colId] ? 'inline-flex' : 'none';
+
+  // Clear search
+  const searchInput = document.getElementById('pickerSearchInput');
+  searchInput.value = '';
+  const clearBtn = document.getElementById('btnPickerClearSearch');
+  if (clearBtn) clearBtn.classList.remove('show');
+
+  renderPickerGrid();
+  document.getElementById('modalMemberPicker').classList.add('open');
+
+  if (window.lucide) lucide.createIcons();
+}
+
+function setPickerTeamFilter(team) {
+  pickerFilterTeam = team;
+  document.querySelectorAll('.picker-team-tab').forEach(tab => {
+    const isActive = (team === '' && tab.textContent === 'Semua') || tab.textContent === team.replace('Team ', '');
+    tab.classList.toggle('active', isActive);
+  });
+  renderPickerGrid();
+}
+
+function filterPickerMembers() {
+  const q = document.getElementById('pickerSearchInput').value.trim();
+  const clearBtn = document.getElementById('btnPickerClearSearch');
+  if (clearBtn) clearBtn.classList.toggle('show', q.length > 0);
+  renderPickerGrid();
+}
+
+function clearPickerSearch() {
+  document.getElementById('pickerSearchInput').value = '';
+  const clearBtn = document.getElementById('btnPickerClearSearch');
+  if (clearBtn) clearBtn.classList.remove('show');
+  renderPickerGrid();
+}
+
+function renderPickerGrid() {
+  const grid = document.getElementById('pickerMembersGrid');
+  const colObj = TEAM_COLS.find(c => c.id === pickerColId);
+  const q = (document.getElementById('pickerSearchInput')?.value || '').toLowerCase().trim();
+
+  // Filter members by team
+  let members = allMembers;
+  if (colObj.matchTeam !== 'ANY') {
+    members = members.filter(m => m.team === colObj.matchTeam);
+  } else if (pickerFilterTeam) {
+    members = members.filter(m => m.team === pickerFilterTeam);
+  }
+
+  // Filter by search
+  if (q) {
+    members = members.filter(m => m.name.toLowerCase().includes(q) || m.nickname.toLowerCase().includes(q));
+  }
+
+  const currentPlaced = slots[pickerCatId]?.[pickerColId];
+
+  if (!members.length) {
+    grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:30px; color:var(--text-muted);">Tidak ditemukan</div>`;
     return;
   }
 
+  grid.innerHTML = members.map(m => {
+    const isSelected = currentPlaced?.id === m.id;
+    const imgHtml = m.img
+      ? `<img class="picker-member-img" src="${escHtml(m.img)}" alt="${escHtml(m.name)}" referrerpolicy="no-referrer" onerror="onPhotoError(this, '${escHtml(m.team)}')" loading="lazy">`
+      : `<div class="picker-member-placeholder">${getTeamEmoji(m.team)}</div>`;
+
+    return `
+      <div class="picker-member-card ${isSelected ? 'selected-in-slot' : ''}"
+           onclick="selectMemberFromPicker(${m.id})"
+           title="${escHtml(m.name)} (${escHtml(m.team)})">
+        ${imgHtml}
+        <div class="picker-member-name">${escHtml(m.nickname)}</div>
+        <div class="picker-member-gen">${escHtml(m.gen)}</div>
+      </div>`;
+  }).join('');
+
+  if (window.lucide) lucide.createIcons();
+}
+
+function selectMemberFromPicker(memberId) {
+  const member = allMembers.find(m => m.id === memberId);
+  if (!member || !pickerCatId || !pickerColId) return;
+
+  slots[pickerCatId][pickerColId] = member;
+  saveSlotsToStorage();
+  renderMatrixTable();
+  updateStats();
+  closeModal('modalMemberPicker');
+
+  const catObj = CATEGORIES.find(c => c.id === pickerCatId);
+  const colObj = TEAM_COLS.find(c => c.id === pickerColId);
   if (colObj.id === 'jkt48') {
     showToast(`👑 ${member.nickname} menjadi Ultimate JKT48 untuk ${catObj.title}!`);
   } else {
     showToast(`🌸 ${member.nickname} → ${catObj.title} (${colObj.name})`);
   }
-
-  slots[catId][colId] = member;
-  saveSlotsToStorage();
-
-  renderMatrixTable();
-  updateMemberCardStates();
-  updateStats();
 }
 
+function clearActivePickerSlot() {
+  if (pickerCatId && pickerColId) {
+    slots[pickerCatId][pickerColId] = null;
+    saveSlotsToStorage();
+    renderMatrixTable();
+    updateStats();
+    closeModal('modalMemberPicker');
+    showToast('🗑️ Slot dikosongkan');
+  }
+}
+
+// ── Remove Member from Cell ─────────────────
 function removeMemberCell(event, catId, colId) {
   if (event) event.stopPropagation();
   slots[catId][colId] = null;
   saveSlotsToStorage();
   renderMatrixTable();
-  updateMemberCardStates();
   updateStats();
   showToast('🗑️ Anggota dihapus dari sel');
 }
 
-function updateMemberCardStates() {
-  allMembers.forEach(m => {
-    const card = document.getElementById(`mc-${m.id}`);
-    if (!card) return;
-    let placeCount = 0;
-    CATEGORIES.forEach(cat => {
-      TEAM_COLS.forEach(col => {
-        if (slots[cat.id][col.id]?.id === m.id) placeCount++;
-      });
-    });
-
-    const wrap = card.querySelector('.member-img-wrap');
-    let badge = wrap ? wrap.querySelector('.member-place-badge') : null;
-
-    if (placeCount > 0) {
-      card.classList.add('placed');
-      if (wrap) {
-        if (!badge) {
-          badge = document.createElement('span');
-          badge.className = 'member-place-badge';
-          wrap.appendChild(badge);
-        }
-        badge.title = `Dipasang di ${placeCount} kategori`;
-        badge.innerHTML = `👑 ${placeCount}x`;
-      }
-    } else {
-      card.classList.remove('placed');
-      if (badge) badge.remove();
-    }
-  });
+// ── Confirm & Clear All ─────────────────────
+function confirmClearAll() {
+  let count = 0;
+  CATEGORIES.forEach(cat => { TEAM_COLS.forEach(col => { if (slots[cat.id][col.id]) count++; }); });
+  if (count === 0) {
+    showToast('ℹ️ Tabel sudah kosong');
+    return;
+  }
+  document.getElementById('modalConfirmClear').classList.add('open');
 }
 
-// ── Auto Fill Random ────────────────────────
-function autoFillRandom() {
-  const byTeam = {
-    'Team Love': allMembers.filter(m => m.team === 'Team Love'),
-    'Team Dream': allMembers.filter(m => m.team === 'Team Dream'),
-    'Team Passion': allMembers.filter(m => m.team === 'Team Passion'),
-    'Trainee': allMembers.filter(m => m.team === 'Trainee'),
-  };
-
-  CATEGORIES.forEach(cat => {
-    TEAM_COLS.forEach(col => {
-      if (!slots[cat.id][col.id]) {
-        if (col.id === 'jkt48') {
-          // Pick a random member from ANY team for overall JKT48
-          const rand = allMembers[Math.floor(Math.random() * allMembers.length)];
-          if (rand) slots[cat.id][col.id] = rand;
-        } else {
-          const pool = byTeam[col.matchTeam] || allMembers;
-          if (pool.length > 0) {
-            const rand = pool[Math.floor(Math.random() * pool.length)];
-            slots[cat.id][col.id] = rand;
-          }
-        }
-      }
-    });
-  });
-
-  saveSlotsToStorage();
-  renderMatrixTable();
-  updateMemberCardStates();
-  updateStats();
-  showToast('✨ Auto Fill selesai! Tabel telah diisi lengkap per tim.');
-}
-
-// ── Clear All ───────────────────────────────
-function clearAllSlots() {
-  CATEGORIES.forEach(cat => {
-    TEAM_COLS.forEach(col => {
-      slots[cat.id][col.id] = null;
-    });
-  });
+function executeClearAll() {
+  CATEGORIES.forEach(cat => { TEAM_COLS.forEach(col => { slots[cat.id][col.id] = null; }); });
   localStorage.removeItem('jkt48_slots');
   renderMatrixTable();
-  updateMemberCardStates();
   updateStats();
+  closeModal('modalConfirmClear');
   showToast('🗑️ Semua 45 sel tabel dikosongkan');
 }
 
-// ── Calculate Group Score ───────────────────
+// ── Stats ────────────────────────────────────
 function calculateGroupScore() {
-  let total = 0;
-  let count = 0;
+  let total = 0, count = 0;
   CATEGORIES.forEach(cat => {
     TEAM_COLS.forEach(col => {
-      const member = slots[cat.id][col.id];
-      if (member) {
-        total += getMemberScore(member.id, cat.id, col.id);
+      const m = slots[cat.id][col.id];
+      if (m) {
+        total += 60 + ((m.id * 7 + cat.id.charCodeAt(0) * 3) % 40);
         count++;
       }
     });
@@ -625,84 +445,46 @@ function calculateGroupScore() {
   return count === 0 ? 0 : Math.round((total / count) * (count / 45));
 }
 
-function getGroupTier(score) {
-  return TIER_CONFIG.find(t => score >= t.min) || TIER_CONFIG[TIER_CONFIG.length - 1];
-}
-
-// ── Update Stats ─────────────────────────────
 function updateStats() {
   let count = 0;
-  CATEGORIES.forEach(cat => {
-    TEAM_COLS.forEach(col => {
-      if (slots[cat.id][col.id]) count++;
-    });
-  });
+  CATEGORIES.forEach(cat => { TEAM_COLS.forEach(col => { if (slots[cat.id][col.id]) count++; }); });
 
-  const score = calculateGroupScore();
-  const tier = getGroupTier(score);
-
-  const statCountEl = document.getElementById('statMemberCount');
-  if (statCountEl) {
-    statCountEl.innerHTML = `<i data-lucide="users" style="width: 16px; height: 16px; margin-right: 6px;"></i> ${count} / 45 Slot Terisi`;
-    if (window.lucide) lucide.createIcons({ root: statCountEl });
+  const el = document.getElementById('statMemberCount');
+  if (el) {
+    el.innerHTML = `<i data-lucide="users" style="width:16px;height:16px;margin-right:6px"></i> ${count} / 45 Slot Terisi`;
+    if (window.lucide) lucide.createIcons({ root: el });
   }
 
-  const statScoreEl = document.getElementById('statScore');
-  if (statScoreEl) {
-    statScoreEl.innerHTML = `<i data-lucide="star" style="width: 16px; height: 16px; margin-right: 6px;"></i> Score: ${score}`;
-    if (window.lucide) lucide.createIcons({ root: statScoreEl });
-  }
-
-  const statTierEl = document.getElementById('statTier');
-  if (statTierEl) {
-    statTierEl.innerHTML = `<i data-lucide="award" style="width: 16px; height: 16px; margin-right: 6px;"></i> ${tier.name}`;
-    if (window.lucide) lucide.createIcons({ root: statTierEl });
-  }
-
-  const progressEl = document.getElementById('matrixProgressBar');
-  if (progressEl) {
-    const pct = Math.round((count / 45) * 100);
-    progressEl.style.width = `${pct}%`;
-  }
-
-  const saveBtn = document.getElementById('btnSave');
-  if (saveBtn) saveBtn.disabled = count === 0;
+  const bar = document.getElementById('matrixProgressBar');
+  if (bar) bar.style.width = `${Math.round((count / 45) * 100)}%`;
 }
 
-// ── Toggle Excel Classic Mode ────────────────
+// ── Excel Mode ──────────────────────────────
 function toggleExcelMode() {
   isExcelMode = !isExcelMode;
   const btn = document.getElementById('btnToggleExcel');
   if (isExcelMode) {
     document.body.classList.add('excel-classic-mode');
     if (btn) {
-      btn.innerHTML = `<i data-lucide="sparkles" style="width: 16px; height: 16px; margin-right: 6px;"></i> Mode Premium (Glass)`;
+      btn.innerHTML = `<i data-lucide="sparkles" style="width:16px;height:16px;margin-right:6px"></i> Mode Premium`;
       if (window.lucide) lucide.createIcons({ root: btn });
     }
-    showToast('Mode Excel Classic diaktifkan! Persis seperti spreadsheet.');
+    showToast('Mode Excel Classic diaktifkan!');
   } else {
     document.body.classList.remove('excel-classic-mode');
     if (btn) {
-      btn.innerHTML = `<i data-lucide="layout-grid" style="width: 16px; height: 16px; margin-right: 6px;"></i> Mode Excel Classic`;
+      btn.innerHTML = `<i data-lucide="layout-grid" style="width:16px;height:16px;margin-right:6px"></i> Mode Excel Classic`;
       if (window.lucide) lucide.createIcons({ root: btn });
     }
-    showToast('Mode Premium (Glass) diaktifkan!');
+    showToast('Mode Premium diaktifkan!');
   }
 }
 
-// ── Download Image ───────────────────────────
+// ── Download Image ──────────────────────────
 async function downloadPNG() {
   let count = 0;
-  CATEGORIES.forEach(cat => {
-    TEAM_COLS.forEach(col => {
-      if (slots[cat.id][col.id]) count++;
-    });
-  });
-
-  if (count === 0) {
-    showToast('⚠️ Isi minimal 1 sel di tabel terlebih dahulu!');
-    return;
-  }
+  CATEGORIES.forEach(cat => { TEAM_COLS.forEach(col => { if (slots[cat.id][col.id]) count++; }); });
+  if (count === 0) { showToast('⚠️ Isi minimal 1 sel terlebih dahulu!'); return; }
 
   const target = document.getElementById('matrixWrapper');
   if (!target) return;
@@ -713,7 +495,7 @@ async function downloadPNG() {
   const nameInput = document.getElementById('groupName');
   if (nameInput) nameInput.setAttribute('value', nameInput.value);
 
-  showToast('⏳ Sedang memproses gambar, mohon tunggu...');
+  showToast('⏳ Sedang memproses gambar...');
 
   try {
     const canvas = await html2canvas(target, {
@@ -726,11 +508,10 @@ async function downloadPNG() {
       ignoreElements: (el) => el.classList && el.classList.contains('btn-cell-remove'),
     });
 
-    // Gunakan Blob download agar stabil di semua browser
     canvas.toBlob(function (blob) {
       if (!blob) {
-        showToast('❌ Browser memblokir export gambar. Buka halaman via server lokal (lihat panduan).');
-        if (btn) btn.innerHTML = '⬇️ Download Image';
+        showToast('❌ Browser memblokir export gambar.');
+        if (btn) btn.innerHTML = '<i data-lucide="download" style="width:16px;height:16px;margin-right:4px"></i> Download Image';
         return;
       }
       const url = URL.createObjectURL(blob);
@@ -743,88 +524,66 @@ async function downloadPNG() {
       document.body.removeChild(link);
       setTimeout(() => URL.revokeObjectURL(url), 5000);
       showToast('✅ Berhasil mengunduh gambar!');
-      if (btn) btn.innerHTML = '⬇️ Download Image';
+      if (btn) btn.innerHTML = '<i data-lucide="download" style="width:16px;height:16px;margin-right:4px"></i> Download Image';
+      if (window.lucide) lucide.createIcons({ root: btn });
     }, 'image/jpeg', 0.95);
-
   } catch (err) {
     console.error('Error generating image:', err);
-    if (window.location.protocol === 'file:') {
-      showToast('❌ Download diblokir browser (file://). Jalankan: npx http-server di terminal lalu buka http://localhost:8080');
-    } else {
-      showToast('❌ Gagal mengunduh gambar: ' + (err.message || 'Silakan coba lagi'));
-    }
-    if (btn) btn.innerHTML = '⬇️ Download Image';
+    showToast('❌ Gagal mengunduh gambar: ' + (err.message || 'Coba lagi'));
+    if (btn) btn.innerHTML = '<i data-lucide="download" style="width:16px;height:16px;margin-right:4px"></i> Download Image';
+    if (window.lucide) lucide.createIcons({ root: btn });
   }
 }
 
-// ── Group / Player Name Helpers ─────────────
-function generateRandomName() {
-  const name = RANDOM_GROUP_NAMES[Math.floor(Math.random() * RANDOM_GROUP_NAMES.length)];
-  document.getElementById('groupName').value = name;
-  showToast(`🎲 Nama diubah menjadi "${name}"`);
-}
-
+// ── Group Name ──────────────────────────────
 function getGroupName() {
-  const val = document.getElementById('groupName').value.trim();
-  return val || 'JKT48 Fans';
+  return document.getElementById('groupName')?.value.trim() || 'JKT48 Fans';
 }
 
-// ── Share ─────────────────────────────────────
+// ── Share ────────────────────────────────────
 function getShareText() {
   const name = getGroupName();
   const score = calculateGroupScore();
-  return `🌸 JKT48 Ultimate Matrix oleh ${name} (Score: ${score})\n\nBuat dan isi tabel idol impianmu per kategori & tim di: Build Your Ultimate Idol JKT48! #JKT48 #BuildYourUltimateIdol`;
+  return `🌸 JKT48 Ultimate Matrix oleh ${name} (Score: ${score})\n\nBuat tabel idol impianmu di: Build Your Ultimate Idol JKT48! #JKT48 #BuildYourUltimateIdol`;
 }
 
 function shareGroup() {
-  const desc = getShareText();
-  document.getElementById('modalShareDesc').textContent = desc;
+  document.getElementById('modalShareDesc').textContent = getShareText();
   document.getElementById('modalShare').classList.add('open');
 }
 
 function shareToTwitter() {
-  const text = encodeURIComponent(getShareText(document.getElementById('shareTwitterBtn').dataset.groupId || null));
-  window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank', 'width=600,height=400');
-}
-
-function shareToFacebook() {
-  const text = encodeURIComponent(getShareText(null));
-  window.open(`https://www.facebook.com/sharer/sharer.php?quote=${text}&u=${encodeURIComponent(window.location.href)}`, '_blank', 'width=600,height=400');
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(getShareText())}`, '_blank', 'width=600,height=400');
 }
 
 function shareToWhatsapp() {
-  const text = encodeURIComponent(getShareText(null));
-  window.open(`https://wa.me/?text=${text}`, '_blank');
+  window.open(`https://wa.me/?text=${encodeURIComponent(getShareText())}`, '_blank');
 }
 
 async function copyShareLink() {
-  const text = getShareText(null);
   try {
-    await navigator.clipboard.writeText(text);
+    await navigator.clipboard.writeText(getShareText());
     showToast('📋 Teks berhasil disalin!');
-  } catch {
-    showToast('⚠️ Gagal menyalin - coba secara manual');
+  } catch { showToast('⚠️ Gagal menyalin'); }
+}
+
+// ── Welcome Modal (first visit) ─────────────
+function closeWelcomeModal() {
+  closeModal('modalWelcome');
+  localStorage.setItem('jkt48_welcome_seen', '1');
+}
+
+function showWelcomeIfNeeded() {
+  if (!localStorage.getItem('jkt48_welcome_seen')) {
+    document.getElementById('modalWelcome')?.classList.add('open');
   }
 }
 
-// ── Tab Navigation ────────────────────────────
-function showTab(tab) {
-  if (tab === 'guide') {
-    document.getElementById('modalGuide')?.classList.add('open');
-    return;
-  }
-  if (tab === 'build') {
-    closeModal('modalGuide');
-    return;
-  }
-}
-
-// ── Modal Helpers ─────────────────────────────
+// ── Modal & Toast Helpers ───────────────────
 function closeModal(id) {
   document.getElementById(id)?.classList.remove('open');
 }
 
-// ── Toast ─────────────────────────────────────
 let toastTimeout;
 function showToast(msg) {
   const toast = document.getElementById('toast');
@@ -834,17 +593,9 @@ function showToast(msg) {
   toastTimeout = setTimeout(() => toast.classList.remove('show'), 2800);
 }
 
-// ── Utility ───────────────────────────────────
 function escHtml(str) {
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
-
-
 
 // ── Init ──────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
@@ -852,14 +603,13 @@ document.addEventListener('DOMContentLoaded', () => {
   updateStats();
   loadMembers();
 
-  if (window.lucide) {
-    lucide.createIcons();
-  }
+  if (window.lucide) lucide.createIcons();
 
-  // Close modals on Escape
+  showWelcomeIfNeeded();
+
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
-      ['modalShare', 'modalGuide'].forEach(closeModal);
+      ['modalMemberPicker', 'modalConfirmClear', 'modalShare', 'modalWelcome'].forEach(closeModal);
     }
   });
 });
