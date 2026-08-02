@@ -45,7 +45,7 @@ const FALLBACK_MEMBERS = [
   { id: 3, name: 'Anindya Ramadhani', nickname: 'Anin', team: 'Team Love', img: null, gen: '11th' },
   { id: 10, name: 'Aurellia', nickname: 'Lia', team: 'Team Love', img: null, gen: '10th' },
   { id: 11, name: 'Aurhel Alana', nickname: 'Lana', team: 'Team Love', img: null, gen: '12th' },
-  { id: 8, name: 'Cathleen Nixie', nickname: 'Nixie', team: 'Team Love', img: null, gen: '11th' },
+  { id: 8, name: 'Cathleen Nixie', nickname: 'Cathy', team: 'Team Love', img: null, gen: '11th' },
   { id: 5, name: 'Celline Thefani', nickname: 'Elin', team: 'Team Love', img: null, gen: '11th' },
   { id: 7, name: 'Cynthia Yaputera', nickname: 'Cynthia', team: 'Team Love', img: null, gen: '11th' },
   { id: 1, name: 'Fiony Alveria', nickname: 'Fiony', team: 'Team Love', img: null, gen: '8th' },
