@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JKT48 Draft Pick: Roulette Pick &amp; Ban</title>
+  <meta name="description"
+    content="Mainkan JKT48 Draft Pick 2 player bergantian dengan roulette member, sistem Pick &amp; Ban, penilaian kategori, dan export gambar." />
+  <meta property="og:title" content="JKT48 Draft Pick: Roulette Pick &amp; Ban" />
+  <meta property="og:type" content="website" />
+  <meta name="referrer" content="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/favicon.svg" />
+  <link rel="shortcut icon" href="../assets/logo/favicon.svg" />
+  <link rel="stylesheet" href="../styles/style.css?v=7.2" />
+  <link rel="stylesheet" href="draft.css?v=2.8" />
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+</head>
+
+<body class="draft-page">
+
+  <!-- Header (aligned with Ultimate Idol) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../" class="header-home-link" aria-label="Kembali ke halaman pemilihan game">
+        <i data-lucide="arrow-left" style="width: 15px; height: 15px;" aria-hidden="true"></i>
+        <span>Home</span>
+      </a>
+      <a href="../" class="logo-group-link" title="Kembali ke Home">
+        <div class="logo-group">
+          <img src="../assets/logo/logo.png" alt="Logo JKT48" class="logo-img" width="40" height="40" fetchpriority="high" />
+          <h1 class="logo-title" style="margin: 0;">JKT48 Draft Pick</h1>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <main class="main-content draft-main">
+
+    <!-- Error state if member data fails to load -->
+    <section id="dataErrorSection" class="draft-error glass-card" hidden>
+      <h2>Data member tidak berhasil dimuat</h2>
+      <p>Pastikan file <code>utils/members.js</code> tersedia, lalu muat ulang halaman ini.</p>
+      <button type="button" class="btn-draft-primary" onclick="window.location.reload()">Muat Ulang</button>
+    </section>
+
+    <!-- ===== PHASE: SETUP ===== -->
+    <section id="setupSection" class="draft-setup-stage" hidden>
+      <div class="draft-setup glass-card">
+        <div class="setup-hero">
+          <div class="setup-hero-icon" aria-hidden="true"><i data-lucide="disc-3"></i></div>
+          <h2>Setup Draft Pick JKT48</h2>
+          <p>Tentukan 2 player dan pool tim untuk roulette. Setiap giliran, pilih <strong>PICK</strong> ke kategori
+            kosong atau <strong>BAN</strong> untuk membuang member.</p>
+        </div>
+
+        <div class="setup-matchup">
+          <label class="setup-field" for="inputP1">
+            <span class="setup-label p1-text"><i data-lucide="user" aria-hidden="true"></i> Player 1</span>
+            <input id="inputP1" class="search-input setup-input" type="text" maxlength="20"
+              placeholder="Nama Player 1" />
+          </label>
+          <div class="setup-vs" aria-hidden="true">VS</div>
+          <label class="setup-field" for="inputP2">
+            <span class="setup-label p2-text"><i data-lucide="user" aria-hidden="true"></i> Player 2</span>
+            <input id="inputP2" class="search-input setup-input" type="text" maxlength="20"
+              placeholder="Nama Player 2" />
+          </label>
+        </div>
+
+        <div class="setup-options-stack">
+          <fieldset class="setup-block">
+            <legend class="setup-block-title">Giliran pertama</legend>
+            <div class="chip-group chip-grid-3" id="firstTurnGroup">
+              <label class="chip"><input type="radio" name="firstTurn" value="0" checked /><span>Player 1</span></label>
+              <label class="chip"><input type="radio" name="firstTurn" value="1" /><span>Player 2</span></label>
+              <label class="chip"><input type="radio" name="firstTurn" value="random" /><span>Acak</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="setup-block">
+            <legend class="setup-block-title">Pool member <span class="setup-pool-count" id="poolCount"></span></legend>
+            <div class="chip-group chip-grid-4" id="teamPoolGroup">
+              <label class="chip chip-love"><input type="checkbox" value="Team Love" checked
+                  onchange="updatePoolCount()" /><span>Team Love</span></label>
+              <label class="chip chip-dream"><input type="checkbox" value="Team Dream" checked
+                  onchange="updatePoolCount()" /><span>Team Dream</span></label>
+              <label class="chip chip-passion"><input type="checkbox" value="Team Passion" checked
+                  onchange="updatePoolCount()" /><span>Team Passion</span></label>
+              <label class="chip chip-trainee"><input type="checkbox" value="Trainee" checked
+                  onchange="updatePoolCount()" /><span>Trainee</span></label>
+            </div>
+          </fieldset>
+        </div>
+
+        <button type="button" class="btn-draft-primary" id="btnStartDraft" onclick="startDraft()">
+          <i data-lucide="play" aria-hidden="true"></i> Mulai Draft
+        </button>
+      </div>
+
+      <!-- Right Column: Cara Bermain (matches Setup height) -->
+      <aside class="setup-guide-panel glass-card" aria-label="Cara Bermain Draft Pick">
+        <div class="setup-guide-header">
+          <i data-lucide="book-open" style="width: 18px; height: 18px;" aria-hidden="true"></i>
+          <h2>Cara Bermain</h2>
+        </div>
+        <ol class="setup-guide-steps">
+          <li class="setup-guide-step">
+            <span class="step-num">1</span>
+            <div class="step-content">
+              <h3>Isi nama 2 player</h3>
+              <p>Tentukan siapa yang jalan duluan dan tim mana saja yang masuk ke roulette.</p>
+            </div>
+          </li>
+          <li class="setup-guide-step">
+            <span class="step-num">2</span>
+            <div class="step-content">
+              <h3>Putar roulette</h3>
+              <p>Player yang sedang giliran memutar roulette. Member yang sudah di-pick atau di-ban otomatis hilang dari
+                roulette.</p>
+            </div>
+          </li>
+          <li class="setup-guide-step">
+            <span class="step-num">3</span>
+            <div class="step-content">
+              <h3>PICK atau BAN</h3>
+              <p><strong>PICK:</strong> tempatkan member di 9 kategori kosong (Captain, Center, Variety, All Rounder,
+                Dance, Stage Perform, Fan Service, Visual, Vocal). <strong>BAN:</strong> buang member (maks. 3x per
+                player; khusus Trainee saja tanpa ban).</p>
+            </div>
+          </li>
+          <li class="setup-guide-step">
+            <span class="step-num">4</span>
+            <div class="step-content">
+              <h3>Giliran bergantian</h3>
+              <p>Setelah pick atau ban, giliran berpindah ke lawan. Jika jatah ban habis, member hasil roulette
+                <strong>wajib</strong> ditempatkan di kategori kosong.</p>
+            </div>
+          </li>
+          <li class="setup-guide-step">
+            <span class="step-num">5</span>
+            <div class="step-content">
+              <h3>Nilai dan bagikan</h3>
+              <p>Setelah 9 kategori kedua player terisi, klik member di tabel untuk menandai pemenang tiap kategori,
+                lalu unduh gambar hasilnya.</p>
+            </div>
+          </li>
+        </ol>
+      </aside>
+    </section>
+
+    <!-- ===== PHASE: DRAFTING / DONE (3-Column Equal-Height Stage) ===== -->
+    <section id="gameSection" hidden>
+      <div class="draft-layout">
+
+        <!-- Column 1: Roulette Stage -->
+        <div class="wheel-panel glass-card">
+          <div id="turnBanner" class="turn-banner" aria-live="polite"></div>
+
+          <div class="wheel-wrap" id="wheelWrap">
+            <div class="wheel-pointer" id="wheelPointer" aria-hidden="true"></div>
+            <canvas id="wheelCanvas" onclick="spinWheel()" aria-hidden="true"></canvas>
+            <button type="button" class="wheel-hub" id="wheelHub" onclick="spinWheel()"
+              aria-label="Putar roulette">SPIN</button>
+          </div>
+
+          <div class="wheel-footer">
+            <div class="wheel-actions">
+              <button type="button" class="btn-draft-primary btn-spin" id="btnSpin" onclick="spinWheel()">
+                <i data-lucide="rotate-cw" aria-hidden="true"></i> <span>Putar Roulette</span>
+              </button>
+              <button type="button" class="btn-shuffle" id="btnShuffle" onclick="shuffleWheel()"
+                title="Acak urutan nama di roulette">
+                <i data-lucide="shuffle" aria-hidden="true"></i> <span>Shuffle</span>
+              </button>
+            </div>
+            <div class="wheel-remaining" id="wheelRemaining"></div>
+          </div>
+
+          <!-- Done panel (shown when draft complete) -->
+          <div class="done-panel" id="donePanel" hidden>
+            <div class="done-title"><i data-lucide="trophy" aria-hidden="true"></i> Draft Selesai</div>
+            <p class="done-desc">Bandingkan line-up kalian. <strong>Klik nama member di tabel</strong> untuk menandai
+              pemenang tiap kategori.</p>
+            <div class="scoreboard" id="scoreboard"></div>
+            <div class="done-actions">
+              <button type="button" class="btn-action btn-save" id="btnDownloadDraft" onclick="downloadDraftPNG()">
+                <i data-lucide="download" style="width:16px;height:16px" aria-hidden="true"></i> Download Image
+              </button>
+              <button type="button" class="btn-action btn-auto" onclick="playAgain()">
+                <i data-lucide="refresh-cw" style="width:16px;height:16px" aria-hidden="true"></i> Main Lagi
+              </button>
+              <button type="button" class="btn-action" onclick="openModal('modalConfirmReset')">
+                <i data-lucide="settings-2" style="width:16px;height:16px" aria-hidden="true"></i> Setup Baru
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Draft Board (Capture Target) -->
+        <div class="draft-capture glass-card" id="draftCapture">
+          <div class="board-title-row">
+            <span class="board-title"><i data-lucide="disc-3" style="width:18px;height:18px" aria-hidden="true"></i>
+              JKT48 Draft Pick</span>
+            <span class="board-progress" id="boardProgress"></span>
+          </div>
+          <div class="table-scroll">
+            <table class="draft-table" id="draftTable"></table>
+          </div>
+
+          <div class="ban-board" id="banBoard"></div>
+
+          <div class="draft-export-footer">
+            <span>JKT48 Fan Playground · Draft Pick</span>
+            <span>Hanya untuk hiburan, bukan penilaian resmi.</span>
+          </div>
+        </div>
+
+        <!-- Column 3: Riwayat Draft Rail (Equal Height on Desktop) -->
+        <aside class="log-panel glass-card" aria-label="Riwayat Draft">
+          <div class="log-header">
+            <span class="log-title"><i data-lucide="scroll-text" style="width:16px;height:16px" aria-hidden="true"></i>
+              Riwayat Draft</span>
+            <span class="log-count" id="logCount">0 aksi</span>
+          </div>
+          <div class="log-list-wrap">
+            <ol class="log-list" id="logList"></ol>
+          </div>
+          <div class="log-footer">
+            <button type="button" class="btn-action btn-clear btn-log-reset" id="btnReset"
+              onclick="openModal('modalConfirmReset')">
+              <i data-lucide="rotate-ccw" style="width:15px;height:15px" aria-hidden="true"></i> Reset Draft
+            </button>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== MODALS ===== -->
+
+  <!-- Roulette Result: Pick / Ban -->
+  <div class="modal-overlay" id="modalResult" role="dialog" aria-modal="true" aria-label="Hasil roulette"
+    onclick="minimizeResult()">
+    <div class="modal-box result-modal glass-card" id="resultContent" onclick="event.stopPropagation()"></div>
+  </div>
+
+  <!-- Confirm Reset -->
+  <div class="modal-overlay" id="modalConfirmReset" role="dialog" aria-modal="true" aria-labelledby="confirmResetTitle"
+    onclick="closeModal('modalConfirmReset')">
+    <div class="modal-box confirm-modal-box glass-card" onclick="event.stopPropagation()">
+      <div class="confirm-icon-wrapper" aria-hidden="true"><i data-lucide="alert-triangle"
+          style="width: 32px; height: 32px;"></i></div>
+      <h2 class="confirm-title" id="confirmResetTitle">Reset Draft?</h2>
+      <p class="confirm-desc">Semua pick, ban, dan riwayat draft akan dihapus, lalu kembali ke halaman setup.</p>
+      <div class="confirm-actions">
+        <button type="button" class="btn-confirm-cancel" onclick="closeModal('modalConfirmReset')">
+          <i data-lucide="x" style="width: 16px; height: 16px;" aria-hidden="true"></i> Batal
+        </button>
+        <button type="button" class="btn-confirm-delete" onclick="resetToSetup()">
+          <i data-lucide="rotate-ccw" style="width: 16px; height: 16px;" aria-hidden="true"></i> Ya, Reset
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Pending Decision Bar -->
+  <div class="pending-bar" id="pendingBar" hidden></div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+  <script>window.JKT48_ASSET_BASE = '../';</script>
+  <script src="../utils/members.js?v=7.3" defer></script>
+  <script src="draft.js?v=2.2" defer></script>
+</body>
+
+</html>

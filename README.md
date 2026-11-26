@@ -1,45 +1,60 @@
-# 🌸 JKT48 Ultimate Idol Matrix
+# JKT48 Fan Playground
 
-![Project Status](https://img.shields.io/badge/Status-Active-brightgreen) ![License](https://img.shields.io/badge/License-Open_Source-blue)
+Web interaktif buatan fans untuk fans JKT48 dengan dua mode permainan: **Ultimate Idol** dan **Draft Pick**. Seluruh data mencakup 58 member aktif lintas 4 tim (`Team Love`, `Team Dream`, `Team Passion`, dan `Trainee`), berjalan sepenuhnya di sisi klien tanpa backend.
 
-**Build Your Ultimate Idol JKT48!**
-Sebuah web interaktif buatan fans untuk para fans JKT48. Susun matriks idol favoritmu berdasarkan 9 kategori kemampuan dan pesona: *Visual, Dance, Vocal, Fan Service, MC, Stage Performance, Fashion Sense, Leadership, dan Aura!*
+## Mode Permainan
 
----
+### 1. Ultimate Idol (`/ultimate-idol/`)
+Susun matriks idol impianmu berisi 45 slot dari 9 kategori (*Visual, Dance, Vocal, Fan Service, MC, Stage Performance, Fashion Sense, Leadership, dan Aura*) pada 5 kolom tim (*Love, Dream, Passion, Trainee, dan All-Star JKT48*).
 
-## ✨ Fitur Utama
-- **Interaktif & Mudah Digunakan:** Tinggal klik kotak (slot) kosong, cari nama member kesukaanmu, lalu posisikan sesuai dengan kategori dan vibe tim yang paling pas menurut versimu.
-- **Berbagai Kategori Unik:** Tersedia panduan kategori lengkap seperti *Fan Service, MC, Fashion Sense, Leadership, dan Aura* untuk membantu menentukan kekuatan utama member.
-- **Mode Tampilan:** Punya *Dark Mode* (bawaan) yang elegan dan fitur opsional *Mode Excel Classic* untuk tampilan ala *spreadsheet* jadul.
-- **Bagikan Kreasimu:** Fitur sekali klik **"Download Image"** untuk mengubah matriks buatanmu menjadi gambar `.png` berkualitas tinggi, siap dipamerkan ke X (Twitter) atau Instagram!
-- **Desain Responsif & Estetik:** Tampilan mulus, ringan, dan penuh mikro-animasi baik saat dibuka lewat HP maupun PC.
+- Pemilihan member melalui popup pencarian dan filter tim.
+- Dua pilihan tampilan: tema gelap bawaan dan **Mode Excel Classic**.
+- Progres otomatis tersimpan di `localStorage`.
+- Ekspor tabel matriks langsung menjadi gambar `.jpg`.
 
----
+### 2. Draft Pick (`/draft-pick/`)
+Adu strategi menyusun line-up JKT48 secara bergantian untuk 2 player menggunakan roda roulette dengan sistem **PICK** dan **BAN**.
 
-## 🛠️ Cara Bermain
-1. **Tulis Nama:** Ketik namamu di kotak input atas matriks sebagai tanda pembuat.
-2. **Pilih Member:** Klik salah satu sel kosong di dalam tabel. Sebuah popup pencarian member akan muncul.
-3. **Susun Tim:** Letakkan setiap member ke *vibe* yang menurutmu paling pas (Love, Dream, Passion, Trainee, atau The All-Star JKT48).
-4. **Simpan & Pamerkan:** Jika sudah puas meracik idamanmu, klik tombol "Download Image" untuk mengunduhnya. Jangan lupa gunakan hashtag `#UltimateIdolJKT48` saat posting!
+- **Setup fleksibel:** atur nama 2 player, penentuan giliran pertama (`Player 1`, `Player 2`, atau `Acak`), dan pool tim yang masuk ke roulette.
+- **Roulette & Shuffle:** member yang sudah di-pick atau di-ban otomatis keluar dari roda; urutan nama bisa diacak ulang sebelum diputar.
+- **PICK & BAN:** tempatkan member pada 9 kategori (*Captain, Center, Variety, All Rounder, Dance, Stage Perform, Fan Service, Visual, dan Vocal*) atau buang hingga maksimal 3x ban per player (khusus pool Trainee saja berjalan tanpa ban).
+- **Riwayat & Penilaian:** pantau kronologi aksi di panel riwayat, lalu tandai pemenang tiap kategori setelah semua slot terisi untuk menghitung skor akhir dan mengunduh papan hasil sebagai `.jpg`.
 
----
+## Struktur Direktori
 
-## 💻 Tech Stack
-Web ini sepenuhnya statis (*Client-side*) dan sangat ringan. Dibangun menggunakan:
-- **HTML5 & Vanilla CSS** untuk struktur dan *styling* (*modern glassmorphism design*).
-- **Vanilla JavaScript** untuk logika dan manipulasi DOM.
-- [**Lucide Icons**](https://lucide.dev/) untuk ikon-ikon yang minimalis dan tajam.
-- [**html2canvas**](https://html2canvas.hertzen.com/) untuk fitur render ekspor gambar PNG.
+```text
+jkt48-ultimate-idol/
+├── index.html                  # Halaman utama pemilihan mode permainan
+├── assets/
+│   ├── logo/                   # Logo dan favicon
+│   └── members/                # Foto 58 member (team-love, team-dream, team-passion, trainee)
+├── styles/
+│   ├── home.css                # Styling halaman utama
+│   └── style.css               # Base styling bersama (header, modal, tombol, toast)
+├── utils/
+│   └── members.js              # Data 58 member bersama dan helper path foto
+├── ultimate-idol/
+│   ├── index.html              # Halaman game Ultimate Idol
+│   ├── ulti.css                # Styling khusus Ultimate Idol
+│   └── ulti.js                 # Logika matriks, picker, dan ekspor gambar
+└── draft-pick/
+    ├── index.html              # Halaman game Draft Pick
+    ├── draft.css               # Styling khusus Draft Pick
+    └── draft.js                # Logika roulette, Pick & Ban, judging, dan ekspor gambar
+```
 
----
+## Tech Stack
 
-## 🤝 Kontributor
-- **Website Concept & Development:** [ALBANIDAV](https://github.com/ALBANIDAV) 
-- **Web Developer & Refinement:** [RaihanFerdy (Ferdy)](https://github.com/RaihanFerdy)
+- **HTML5, Vanilla CSS, dan Vanilla JavaScript** tanpa framework build.
+- **HTML5 Canvas** untuk render roda roulette Draft Pick.
+- **[Lucide Icons](https://lucide.dev/)** untuk ikon antarmuka pada halaman game.
+- **[html2canvas](https://html2canvas.hertzen.com/)** untuk merender papan menjadi gambar `.jpg`.
 
-Terima kasih sebesar-besarnya untuk semua teman-teman fans JKT48 atas dukungan dan antusiasmenya!
+## Kontributor
 
----
+- **Website Concept & Development:** [ALBANIDAV](https://github.com/ALBANIDAV)
+- **Web Developer & Refinement:** [RaihanFerdy](https://github.com/RaihanFerdy)
 
-## ⚠️ Disclaimer
-Web ini dibuat **MURNI UNTUK HIBURAN** dan seru-seruan antar fans. Segala susunan matriks yang dibuat 100% merupakan opini subjektif dari penggunanya. Proyek ini bukanlah ajang perbandingan yang bertujuan merendahkan member mana pun, karena setiap member JKT48 memiliki pesona dan warnanya masing-masing yang luar biasa. **Keep support your oshi!** 💖
+## Disclaimer
+
+Proyek ini dibuat murni untuk hiburan antar-fans JKT48. Setiap susunan matriks maupun hasil penilaian Draft Pick sepenuhnya merupakan opini pribadi pengguna dan bukan penilaian resmi terhadap member mana pun.

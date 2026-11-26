@@ -4,401 +4,269 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ultimate Idol JKT48</title>
+  <title>JKT48 Fan Playground: Ultimate Idol &amp; Draft Pick</title>
   <meta name="description"
-    content="Bangun tabel grup idol impianmu dari anggota JKT48! Pilih member per kategori dan tim." />
-  <meta property="og:title" content="Ultimate Idol JKT48" />
-  <meta property="og:description" content="Bangun grup idol impianmu dari anggota JKT48 dan bagikan ke media sosial!" />
+    content="Dua permainan web untuk fans JKT48: susun tabel 45 slot di Ultimate Idol atau adu strategi roulette Pick &amp; Ban 2 player di Draft Pick." />
+  <meta property="og:title" content="JKT48 Fan Playground: Ultimate Idol &amp; Draft Pick" />
+  <meta property="og:description"
+    content="Susun matriks idol impian atau mainkan roulette Draft Pick 2 player dengan 58 member JKT48." />
   <meta property="og:type" content="website" />
   <meta name="referrer" content="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
-  <link rel="icon" type="image/svg+xml" href="logo/favicon.svg" />
-  <link rel="shortcut icon" href="logo/favicon.svg" />
-  <link rel="stylesheet" href="style.css?v=7.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg" />
+  <link rel="shortcut icon" href="assets/logo/favicon.svg" />
+  <link rel="stylesheet" href="styles/home.css?v=2.0" />
 </head>
 
 <body>
+  <a class="skip-link" href="#games">Langsung ke pilihan permainan</a>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="logo-group">
-        <img src="logo/logo.png" alt="JKT48 Logo" class="logo-img" />
-        <h1 class="logo-title" style="margin: 0;">Ultimate Idol JKT48</h1>
+  <div class="page-wrap">
+
+    <!-- Top Brand Bar -->
+    <header class="site-bar">
+      <div class="brand-lockup">
+        <img src="assets/logo/logo.png" alt="Logo JKT48" class="brand-logo" width="36" height="36"
+          fetchpriority="high" />
+        <span class="brand-name">JKT48 Fan Playground</span>
       </div>
-    </div>
-  </header>
+      <div class="roster-fact">58 member aktif, 4 tim</div>
+    </header>
 
-  <!-- MAIN CONTENT -->
-  <main class="main-content">
+    <main>
+      <!-- Editorial Hero -->
+      <section class="hero" aria-labelledby="heroTitle">
+        <h1 class="hero-title" id="heroTitle">Dua cara seru menyusun line-up JKT48.</h1>
+        <p class="hero-lead">
+          Pilih mode bermain: isi 45 slot matriks idol versimu sendiri atau adu strategi roulette Pick &amp; Ban
+          bergantian bareng teman.
+        </p>
+      </section>
 
-    <!-- Disclaimer Banner -->
-    <div class="disclaimer-banner glass-card" id="disclaimerBanner">
-      <div class="disclaimer-banner-content">
-        <div class="disclaimer-icon-wrap">
-          <i data-lucide="heart-handshake" class="disclaimer-icon"></i>
-        </div>
-        <div class="disclaimer-text">
-          <span class="disclaimer-title">Catatan dari Fans untuk Fans</span>
-          <p>Halo teman-teman! Web ini dibikin murni buat <strong>seru-seruan dan asik-asikan bareng</strong>, ya.
-            Matrix yang kamu susun di sini 100% adalah <strong>opini dan selera pribadimu</strong>, bukan penilaian
-            resmi apalagi ajang membandingkan member. Kita semua tahu, setiap member JKT48 punya warna dan pesonanya
-            masing-masing yang unik. Selamat berkreasi, <em>keep support your oshi</em>, dan mari saling menghargai
-            pilihan satu sama lain!</p>
-        </div>
-      </div>
-    </div>
+      <!-- Alternating Asymmetric Game Showcases -->
+      <section id="games" class="showcase-stack" aria-label="Pilihan permainan">
 
-    <!-- Controls Bar -->
-    <div class="top-controls-bar glass-card">
-      <div class="group-stats-row">
-        <span class="stat-chip" id="statMemberCount">👥 0 / 45 Slot Terisi</span>
-      </div>
-      <div class="progress-bar-wrap" title="Progres pengisian Idol Matrix">
-        <div class="progress-bar-fill" id="matrixProgressBar" style="width: 0%"></div>
-      </div>
-      <div class="control-buttons-row">
-        <button class="btn-mode-toggle" id="btnToggleExcel" onclick="toggleExcelMode()"
-          title="Ganti tampilan bergaya Excel klasik / Premium">
-          <i data-lucide="layout-grid" style="width: 16px; height: 16px; margin-right: 4px;"></i> Mode Excel Classic
-        </button>
-        <button class="btn-action btn-clear" onclick="confirmClearAll()" id="btnClear">
-          <i data-lucide="trash-2" style="width: 16px; height: 16px; margin-right: 4px;"></i> Clear All
-        </button>
-        <button class="btn-action btn-save" onclick="downloadPNG()" id="btnSave">
-          <i data-lucide="download" style="width: 16px; height: 16px; margin-right: 4px;"></i> Download Image
-        </button>
-      </div>
-    </div>
+        <!-- 01: Ultimate Idol (Copy Left | Real Matrix Preview Right) -->
+        <article class="game-panel panel-idol">
+          <div class="panel-copy">
+            <span class="panel-index">01</span>
+            <h2 class="panel-title">Ultimate Idol</h2>
+            <p class="panel-desc">
+              Susun matriks 9 kategori dari Team Love, Dream, Passion, Trainee, hingga kolom All-Star JKT48. Tersedia
+              tampilan gelap bawaan, Mode Excel klasik, dan unduh hasil sebagai gambar.
+            </p>
+            <dl class="panel-specs">
+              <div class="spec-row">
+                <dt>Format</dt>
+                <dd>Solo, 45 slot matriks</dd>
+              </div>
+              <div class="spec-row">
+                <dt>Hasil</dt>
+                <dd>Mode Excel &amp; unduh JPG</dd>
+              </div>
+            </dl>
+            <div class="panel-actions">
+              <a href="ultimate-idol/" class="btn-game btn-primary">Susun Ultimate Idol</a>
+            </div>
+          </div>
 
-    <!-- 3-Column Stage -->
-    <section class="desktop-matrix-stage">
+          <div class="panel-stage" aria-hidden="true">
+            <div class="mini-matrix">
+              <div class="mm-head">
+                <span class="mm-head-cat">Kategori</span>
+                <span class="mm-head-team t-love">Love</span>
+                <span class="mm-head-team t-dream">Dream</span>
+                <span class="mm-head-team t-passion">Passion</span>
+                <span class="mm-head-team t-trainee">Trainee</span>
+              </div>
 
-      <!-- LEFT: Matrix Table -->
-      <div class="matrix-center-col">
-        <div class="matrix-table-wrapper glass-card" id="matrixWrapper">
-          <table class="idol-matrix-table" id="idolMatrixTable">
-            <thead>
-              <tr class="header-name-row">
-                <th colspan="6" class="th-player-name">
-                  <div class="player-name-container">
-                    <input id="groupName" class="player-name-input" type="text" placeholder="Masukkan nama kamu"
-                      value="" maxlength="40" />
+              <div class="mm-row">
+                <span class="mm-cat">Visual</span>
+                <div class="mm-cell">
+                  <span class="mm-avatar-frame"><img src="assets/members/team-love/Fiony_Alveria.jpg" alt="" width="34"
+                      height="34" loading="eager" /></span>
+                  <span>Fiony</span>
+                </div>
+                <div class="mm-cell">
+                  <span class="mm-avatar-frame"><img src="assets/members/team-dream/Freya_Jayawardana.jpg" alt=""
+                      width="34" height="34" loading="eager" /></span>
+                  <span>Freya</span>
+                </div>
+                <div class="mm-cell">
+                  <span class="mm-avatar-frame"><img src="assets/members/team-passion/Angelina_Christy.jpg" alt=""
+                      width="34" height="34" loading="eager" /></span>
+                  <span>Christy</span>
+                </div>
+                <div class="mm-cell">
+                  <span class="mm-avatar-frame"><img src="assets/members/trainee/Mikaela_Kusjanto.jpg" alt=""
+                      width="34" height="34" loading="eager" /></span>
+                  <span>Mikaela</span>
+                </div>
+              </div>
+
+              <div class="mm-row">
+                <span class="mm-cat">Dance</span>
+                <div class="mm-cell">
+                  <span class="mm-avatar-frame"><img src="assets/members/team-love/Grace_Octaviani.jpg" alt=""
+                      width="34" height="34" loading="lazy" /></span>
+                  <span>Gracie</span>
+                </div>
+                <div class="mm-cell">
+                  <span class="mm-avatar-frame"><img src="assets/members/team-dream/Marsha_Lenathea.jpg" alt=""
+                      width="34" height="34" loading="lazy" /></span>
+                  <span>Marsha</span>
+                </div>
+                <div class="mm-cell">
+                  <span class="mm-avatar-frame"><img src="assets/members/team-passion/Mutiara_Azzahra.jpg" alt=""
+                      width="34" height="34" loading="lazy" /></span>
+                  <span>Muthe</span>
+                </div>
+                <div class="mm-cell">
+                  <span class="mm-avatar-frame"><img src="assets/members/trainee/Astrella_Virgiananda.jpg" alt=""
+                      width="34" height="34" loading="lazy" /></span>
+                  <span>Virgi</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02: Draft Pick (Real Roulette & Duel Preview Left | Copy Right) -->
+        <article class="game-panel panel-draft">
+          <div class="panel-stage" aria-hidden="true">
+            <div class="mini-draft">
+              <div class="md-wheel-col">
+                <div class="md-wheel-shell">
+                  <span class="md-pointer"></span>
+                  <div class="md-wheel">
+                    <span class="md-hub">SPIN</span>
                   </div>
-                </th>
-              </tr>
-              <tr class="header-teams-row">
-                <th class="th-diagonal">
-                  <div class="diag-header-box">
-                    <span class="diag-top">KATEGORI</span>
+                </div>
+              </div>
+
+              <div class="md-board-col">
+                <div class="md-head">
+                  <span class="md-h-cat">Peran</span>
+                  <span class="md-h-p1">Player 1</span>
+                  <span class="md-h-p2">Player 2</span>
+                </div>
+                <div class="md-row">
+                  <span class="md-role">Captain</span>
+                  <div class="md-pick is-win">
+                    <span class="mm-avatar-frame"><img src="assets/members/team-dream/Gita_Sekar_Andarini.jpg" alt=""
+                        width="30" height="30" loading="lazy" /></span>
+                    <span>Gita</span>
                   </div>
-                </th>
-                <th class="th-team th-love">Love</th>
-                <th class="th-team th-dream">Dream</th>
-                <th class="th-team th-passion">Passion</th>
-                <th class="th-team th-trainee">Trainee</th>
-                <th class="th-team th-jkt48">JKT48</th>
-              </tr>
-            </thead>
-            <tbody id="matrixTableBody">
-              <!-- Rendered dynamically by JS -->
-            </tbody>
-          </table>
-          <!-- Export Footer (included in downloaded image) -->
-          <div class="matrix-export-footer">
-            <div class="export-footer-left">
-              <span class="export-brand"><i data-lucide="sparkles"
-                  style="width: 14px; height: 14px; display: inline-block; vertical-align: -2px; margin-right: 4px;"></i>
-                JKT48 Ultimate Idol</span>
-              <span class="export-subtitle"> • Game Seru-seruan Antar-Fans</span>
-            </div>
-            <div class="export-footer-right">
-              <span>Dibuat khusus untuk hiburan &amp; bukan penilaian resmi. Semua member punya pesonanya
-                masing-masing!</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CENTER: Penjelasan Kategori -->
-      <div class="side-guide-panel side-guide-left glass-card">
-        <div class="side-guide-header">
-          <i data-lucide="folder-open" style="width: 18px; height: 18px;"></i>
-          <span>Penjelasan Kategori</span>
-        </div>
-        <div class="side-guide-content">
-          <div class="side-cat-item">
-            <span class="side-cat-icon"><i data-lucide="eye"></i></span>
-            <div><strong>Visual</strong> Punya pesona yang memukau fans</div>
-          </div>
-          <div class="side-cat-item">
-            <span class="side-cat-icon"><i data-lucide="music-4"></i></span>
-            <div><strong>Dance</strong> Paling handal dalam menari</div>
-          </div>
-          <div class="side-cat-item">
-            <span class="side-cat-icon"><i data-lucide="mic-2"></i></span>
-            <div><strong>Vocal</strong> Punya suara yang merdu</div>
-          </div>
-          <div class="side-cat-item">
-            <span class="side-cat-icon"><i data-lucide="heart"></i></span>
-            <div><strong>Fan Service</strong> Sering ngasih perhatian lebih ke fans</div>
-          </div>
-          <div class="side-cat-item">
-            <span class="side-cat-icon"><i data-lucide="mic"></i></span>
-            <div><strong>MC</strong> Paling seru dan bisa menghidupkan suasana dipanggung</div>
-          </div>
-          <div class="side-cat-item">
-            <span class="side-cat-icon"><i data-lucide="star"></i></span>
-            <div><strong>Stage Performance</strong> Punya aura panggung yang kuat</div>
-          </div>
-          <div class="side-cat-item">
-            <span class="side-cat-icon"><i data-lucide="shirt"></i></span>
-            <div><strong>Fashion</strong> Selalu tampil stylish & kece</div>
-          </div>
-          <div class="side-cat-item">
-            <span class="side-cat-icon"><i data-lucide="crown"></i></span>
-            <div><strong>Leadership</strong> Sosok panutan dan pemimpin bagi member lain</div>
-          </div>
-          <div class="side-cat-item">
-            <span class="side-cat-icon"><i data-lucide="sparkles"></i></span>
-            <div><strong>Aura</strong> Memiliki pesona alami yang memikat fans</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT: Cara Bermain + Tips -->
-      <div class="side-right-col">
-        <div class="side-guide-panel side-guide-right glass-card">
-          <div class="side-guide-header">
-            <i data-lucide="book-open" style="width: 18px; height: 18px;"></i>
-            <span>Cara Bermain</span>
-          </div>
-          <div class="side-guide-content">
-            <div class="side-step-item">
-              <span class="side-step-num">1</span>
-              <div><strong>Tulis Nama</strong><br>Ketik namamu di bar atas tabel sebagai penanda pemilik Matrix.</div>
-            </div>
-            <div class="side-step-item">
-              <span class="side-step-num">2</span>
-              <div><strong>Pilih Member</strong><br>Klik slot kosong di tabel lalu pilih member dari popup yang muncul.
+                  <div class="md-pick">
+                    <span class="mm-avatar-frame"><img src="assets/members/team-passion/Feni_Fitriyanti.jpg" alt=""
+                        width="30" height="30" loading="lazy" /></span>
+                    <span>Feni</span>
+                  </div>
+                </div>
+                <div class="md-row">
+                  <span class="md-role">Center</span>
+                  <div class="md-pick">
+                    <span class="mm-avatar-frame"><img src="assets/members/team-love/Indah_Cahya.jpg" alt="" width="30"
+                        height="30" loading="lazy" /></span>
+                    <span>Indah</span>
+                  </div>
+                  <div class="md-pick is-win">
+                    <span class="mm-avatar-frame"><img src="assets/members/team-dream/Oline_Manuel.jpg" alt=""
+                        width="30" height="30" loading="lazy" /></span>
+                    <span>Oline</span>
+                  </div>
+                </div>
+                <div class="md-ban-strip">
+                  <span class="md-ban-label">BAN</span>
+                  <div class="md-ban-chip">
+                    <img src="assets/members/team-passion/Jessica_Chandra.jpg" alt="" width="20" height="20"
+                      loading="lazy" />
+                    <span>Jessi</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="side-step-item">
-              <span class="side-step-num">3</span>
-              <div><strong>Susun Tim</strong><br>Taruh member ke Kategori dan Tim yang menurutmu paling cocok.</div>
-            </div>
-            <div class="side-step-item">
-              <span class="side-step-num">4</span>
-              <div><strong>All-Star JKT48</strong><br>Kolom merah JKT48 adalah pilihan All-Star dari semua tim versimu!
+          </div>
+
+          <div class="panel-copy">
+            <span class="panel-index">02</span>
+            <h2 class="panel-title">Draft Pick</h2>
+            <p class="panel-desc">
+              Putar roulette member secara bergantian 2 player. Putuskan PICK untuk mengisi 9 kategori line-up atau BAN
+              untuk membuang member hingga 3x, lalu nilai pemenang di setiap peran.
+            </p>
+            <dl class="panel-specs">
+              <div class="spec-row">
+                <dt>Format</dt>
+                <dd>2 player bergantian</dd>
               </div>
-            </div>
-            <div class="side-step-item">
-              <span class="side-step-num">5</span>
-              <div><strong>Simpan & Share:</strong><br>Download gambar PNG jernih atau Mode Excel untuk di-share ke fans
-                lain!</div>
-            </div>
-            <div class="side-step-item">
-              <span class="side-step-num">6</span>
-              <div><strong>Enjoy The Game!</strong><br>#UltimateIdolJKT48</div>
+              <div class="spec-row">
+                <dt>Mekanik</dt>
+                <dd>Roulette, Pick &amp; Ban</dd>
+              </div>
+            </dl>
+            <div class="panel-actions">
+              <a href="draft-pick/" class="btn-game btn-secondary">Mainkan Draft Pick</a>
             </div>
           </div>
-        </div>
-        <div class="side-tips-card glass-card">
-          <div class="table-help-hint">
-            <i data-lucide="lightbulb" style="width: 16px; height: 16px; margin-right: 6px;"></i>
-            <span><strong>Tips:</strong> Langsung <strong>tap tombol "+ Pilih" di tabel</strong> untuk memilih member!
-              Kolom merah <strong>JKT48</strong> bisa diisi oleh anggota dari tim mana saja sebagai pilihan All-Star
-              versimu!</span>
-          </div>
-        </div>
-      </div>
+        </article>
 
-    </section>
+      </section>
+    </main>
 
-    <!-- Developer Credits -->
-    <div class="developer-credits">
-      <p class="feedback-text">Punya saran atau nemu bug? Beritahu kami!</p>
-      <div class="social-links">
-        <a href="https://github.com/ALBANIDAV" target="_blank" rel="noopener noreferrer" class="social-btn" title="">
-          <i class="fa-brands fa-github"></i>
-          <!-- Tooltip Hover Card -->
-          <div class="social-tooltip">
-            <div class="tooltip-header">
-              <div class="tooltip-avatar-wrap">
-                <img src="https://github.com/ALBANIDAV.png" class="tooltip-avatar" alt="ALBANIDAV">
+    <!-- Developer Credits Footer -->
+    <footer class="home-footer">
+      <div class="developer-credits">
+        <p class="feedback-text">Punya saran atau nemu bug? Beritahu kami!</p>
+        <div class="social-links">
+          <a href="https://github.com/ALBANIDAV" target="_blank" rel="noopener noreferrer" class="social-btn"
+            aria-label="GitHub ALBANIDAV">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            </svg>
+            <div class="social-tooltip">
+              <div class="tooltip-header">
+                <div class="tooltip-avatar-wrap">
+                  <img src="https://github.com/ALBANIDAV.png" class="tooltip-avatar" alt="ALBANIDAV" width="52"
+                    height="52" loading="lazy" />
+                </div>
+                <div class="tooltip-user-info">
+                  <span class="tooltip-username">ALBANIDAV</span>
+                  <span class="tooltip-fullname">AlbaniDEV</span>
+                </div>
               </div>
-              <div class="tooltip-user-info">
-                <span class="tooltip-username">ALBANIDAV</span>
-                <span class="tooltip-fullname">AlbaniDEV</span>
-              </div>
+              <p class="tooltip-desc">Website Concept &amp; Development | Open Source Contributor</p>
             </div>
-            <p class="tooltip-desc">Website Concept & Development | Open Source Contributor</p>
-          </div>
-        </a>
-        <a href="https://github.com/RaihanFerdy" target="_blank" rel="noopener noreferrer" class="social-btn" title="">
-          <i class="fa-brands fa-github"></i>
-          <!-- Tooltip Hover Card -->
-          <div class="social-tooltip">
-            <div class="tooltip-header">
-              <div class="tooltip-avatar-wrap">
-                <img src="https://github.com/RaihanFerdy.png" class="tooltip-avatar" alt="RaihanFerdy">
+          </a>
+          <a href="https://github.com/RaihanFerdy" target="_blank" rel="noopener noreferrer" class="social-btn"
+            aria-label="GitHub RaihanFerdy">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            </svg>
+            <div class="social-tooltip">
+              <div class="tooltip-header">
+                <div class="tooltip-avatar-wrap">
+                  <img src="https://github.com/RaihanFerdy.png" class="tooltip-avatar" alt="RaihanFerdy" width="52"
+                    height="52" loading="lazy" />
+                </div>
+                <div class="tooltip-user-info">
+                  <span class="tooltip-username">RaihanFerdy</span>
+                  <span class="tooltip-fullname">Ferdy</span>
+                </div>
               </div>
-              <div class="tooltip-user-info">
-                <span class="tooltip-username">RaihanFerdy</span>
-                <span class="tooltip-fullname">Ferdy</span>
-              </div>
+              <p class="tooltip-desc">Web Developer | Open Source Contributor</p>
             </div>
-            <p class="tooltip-desc">Web Developer | Open Source Contributor</p>
-          </div>
-        </a>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- ===== MODALS ===== -->
-
-  <!-- Member Picker Modal -->
-  <div class="modal-overlay" id="modalMemberPicker" onclick="closeModal('modalMemberPicker')">
-    <div class="modal-box modal-lg member-picker-modal-box glass-card" onclick="event.stopPropagation()">
-      <div class="picker-modal-header">
-        <div class="picker-modal-title-group">
-          <span class="picker-cat-icon" id="pickerCatIcon"></span>
-          <div>
-            <h3 class="picker-modal-title" id="pickerCatTitle">Pilih Member</h3>
-            <div class="picker-modal-subtitle" id="pickerTeamBadge"></div>
-          </div>
-        </div>
-        <button class="btn-close-modal" onclick="closeModal('modalMemberPicker')" title="Tutup">
-          <i data-lucide="x" style="width: 16px; height: 16px;"></i>
-        </button>
-      </div>
-
-      <div class="picker-modal-controls">
-        <div class="search-input-wrap" style="width: 100%;">
-          <input id="pickerSearchInput" class="search-input" type="text" placeholder="Cari nama member..."
-            oninput="filterPickerMembers()" />
-          <button class="btn-clear-search" id="btnPickerClearSearch" onclick="clearPickerSearch()"
-            title="Hapus pencarian">
-            <i data-lucide="x" style="width: 14px; height: 14px;"></i>
-          </button>
-        </div>
-        <div class="picker-team-filters" id="pickerTeamFilters">
-          <!-- Dynamically rendered team tabs for JKT48 All-Star column -->
+          </a>
         </div>
       </div>
+    </footer>
 
-      <div class="picker-members-grid" id="pickerMembersGrid">
-        <!-- Dynamically rendered member cards -->
-      </div>
-
-      <div class="picker-modal-footer">
-        <button class="btn-action btn-clear" id="pickerBtnRemove" onclick="clearActivePickerSlot()"
-          style="display: none;">
-          <i data-lucide="trash-2" style="width: 15px; height: 15px; margin-right: 6px;"></i> Kosongkan Slot Ini
-        </button>
-        <button class="btn-action btn-share" onclick="closeModal('modalMemberPicker')" style="padding: 8px 24px;">
-          Tutup
-        </button>
-      </div>
-    </div>
   </div>
-
-  <!-- Confirm Clear All Modal -->
-  <div class="modal-overlay" id="modalConfirmClear" onclick="closeModal('modalConfirmClear')">
-    <div class="modal-box confirm-modal-box glass-card" onclick="event.stopPropagation()">
-      <div class="confirm-icon-wrapper">
-        <i data-lucide="alert-triangle" style="width: 32px; height: 32px;"></i>
-      </div>
-      <h3 class="confirm-title">Kosongkan Semua Slot?</h3>
-      <p class="confirm-desc">
-        Apakah kamu yakin ingin menghapus seluruh member dari <strong>45 slot tabel</strong>? Tindakan ini tidak dapat
-        dibatalkan.
-      </p>
-      <div class="confirm-actions">
-        <button class="btn-confirm-cancel" onclick="closeModal('modalConfirmClear')">
-          <i data-lucide="x" style="width: 16px; height: 16px;"></i> Batal
-        </button>
-        <button class="btn-confirm-delete" onclick="executeClearAll()">
-          <i data-lucide="trash-2" style="width: 16px; height: 16px;"></i> Ya, Kosongkan
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Share Modal -->
-  <div class="modal-overlay" id="modalShare" onclick="closeModal('modalShare')">
-    <div class="modal-box glass-card" onclick="event.stopPropagation()">
-      <div class="modal-icon"><i data-lucide="share" style="width: 48px; height: 48px;"></i></div>
-      <h3 class="modal-title">Bagikan Tabel Pilihan Versimu!</h3>
-      <p class="modal-desc" id="modalShareDesc"></p>
-      <div class="share-buttons">
-        <button class="share-btn twitter" id="shareTwitterBtn" onclick="shareToTwitter()">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.262 5.637L18.244 2.25Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
-          </svg>
-          Share ke X (Twitter)
-        </button>
-        <button class="share-btn whatsapp" onclick="shareToWhatsapp()">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-          </svg>
-          Share ke WhatsApp
-        </button>
-        <button class="share-btn copy" onclick="copyShareLink()">
-          <i data-lucide="copy"
-            style="width: 18px; height: 18px; margin-right: 6px; display: inline-block; vertical-align: middle;"></i>
-          Salin Link
-        </button>
-      </div>
-      <button class="btn-action btn-clear" onclick="closeModal('modalShare')" style="margin-top:12px">
-        <i data-lucide="x" style="width: 16px; height: 16px; margin-right: 6px;"></i> Tutup
-      </button>
-    </div>
-  </div>
-
-  <!-- Welcome / Disclaimer Modal (first visit) -->
-  <div class="modal-overlay" id="modalWelcome" onclick="closeWelcomeModal()">
-    <div class="modal-box disclaimer-popup-box glass-card" onclick="event.stopPropagation()">
-      <div class="disclaimer-popup-header">
-        <div class="disclaimer-popup-icon-wrap">
-          <i data-lucide="heart-handshake" style="width: 22px; height: 22px;"></i>
-        </div>
-        <h3 class="disclaimer-popup-title">Catatan dari Fans untuk Fans</h3>
-      </div>
-      <div class="disclaimer-popup-body">
-        <p class="disclaimer-popup-p">
-          Halo teman-teman! Web ini dibuat khusus murni buat <strong>seru-seruan dan asik-asikan bareng</strong>
-          antar-fans JKT48.
-        </p>
-        <p class="disclaimer-popup-p">
-          Susunan Matrix yang kamu buat di sini 100% adalah <strong>opini dan selera pribadimu</strong>, bukan penilaian
-          resmi apalagi ajang membandingkan member. Tiap member punya warna dan pesonanya masing-masing yang unik.
-          Selamat berkreasi dan mari saling menghargai pilihan satu sama lain! ✨
-        </p>
-        <p class="disclaimer-popup-muted">
-          *Pembuat website tidak bertanggung jawab atas akibat dari membagikan tabel opini ini ke media sosial.
-        </p>
-      </div>
-      <div class="disclaimer-popup-footer">
-        <button class="btn-disclaimer-mengerti" onclick="closeWelcomeModal()">Mengerti</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toast Notification -->
-  <div class="toast" id="toast"></div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="app.js?v=7.0"></script>
 </body>
 
 </html>
