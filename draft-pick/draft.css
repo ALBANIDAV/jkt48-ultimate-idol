@@ -551,20 +551,6 @@
   border-top: 28px solid #ffffff;
   filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.6));
   z-index: 3;
-  transform-origin: 50% 0;
-}
-
-.wheel-wrap.is-spinning .wheel-pointer {
-  animation: pointerTick 0.12s ease-in-out infinite alternate;
-}
-
-@keyframes pointerTick {
-  from {
-    transform: translateX(-50%) rotate(-7deg);
-  }
-  to {
-    transform: translateX(-50%) rotate(7deg);
-  }
 }
 
 .wheel-hub {
@@ -2108,7 +2094,6 @@
   .result-photo,
   .dt-cell:not(.is-empty),
   .ban-slot.is-filled,
-  .wheel-wrap.is-spinning .wheel-pointer,
   .wheel-wrap.is-shuffling #wheelCanvas {
     animation: none !important;
     transition: none !important;
