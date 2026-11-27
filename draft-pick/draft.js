@@ -18,7 +18,7 @@ const DRAFT_CATEGORIES = [
 const DEFAULT_BAN_LIMIT = 3;
 const MIN_POOL = DRAFT_CATEGORIES.length * 2; // 18 member minimal (9 kategori x 2 player)
 const STORAGE_KEY = 'jkt48_draft_state_v1';
-const SPIN_MS = 5200;
+const SPIN_MS = 20000;
 const WHEEL_COLORS = [
   '#e63946', '#f77f00', '#f4a300', '#2a9d8f', '#22c55e', '#118ab2', '#3a86ff', '#8338ec',
   '#d00000', '#ff006e', '#fb5607', '#457b9d', '#06a77d', '#c1121f', '#7209b7', '#e5383b',
@@ -558,7 +558,7 @@ function spinWheel() {
   const target = (360 - landAngle) % 360;
   const current = (((state.rotation || 0) % 360) + 360) % 360;
   const delta = (target - current + 360) % 360;
-  state.rotation = (state.rotation || 0) + 360 * (6 + randInt(3)) + delta;
+  state.rotation = (state.rotation || 0) + 360 * (10 + randInt(3)) + delta;
   state.pending = ids[idx];
   showDraftPreview = false;
   saveState();
