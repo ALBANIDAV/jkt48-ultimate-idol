@@ -18,7 +18,7 @@ const DRAFT_CATEGORIES = [
 const DEFAULT_BAN_LIMIT = 3;
 const MIN_POOL = DRAFT_CATEGORIES.length * 2; // 18 member minimal (9 kategori x 2 player)
 const STORAGE_KEY = 'jkt48_draft_state_v1';
-const SPIN_MS = 15000;
+const SPIN_MS = 5000;
 const WHEEL_COLORS = [
   '#e63946', '#f77f00', '#f4a300', '#2a9d8f', '#22c55e', '#118ab2', '#3a86ff', '#8338ec',
   '#d00000', '#ff006e', '#fb5607', '#457b9d', '#06a77d', '#c1121f', '#7209b7', '#e5383b',
